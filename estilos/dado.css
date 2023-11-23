@@ -5,6 +5,7 @@
     width: 80%;
     height: 150px;
     margin-bottom: 50px;
+    max-width: 300px;
     text-align: center;
     border: 2px solid black;
 }
@@ -14,6 +15,8 @@
     justify-content: center;
     width: 80%;
     height: 150px;
+    max-width: 300px;
+
     margin-top: 50px;
     text-align: center;
     border: 2px solid black;
