@@ -13,13 +13,16 @@ function atualiza_tabuleiro(matriz){
 
         }
     }
-  
+}
+function atualiza_dado(num){
+    let dado = document.getElementById('dado_player')
+    dado.innerText=num
 
-
-
+    
 }
 function atualizar_tela(player){
     atualiza_tabuleiro(player.tabuleiro)
+    atualiza_dado(player.dado)
 
 }
 export{atualizar_tela}
