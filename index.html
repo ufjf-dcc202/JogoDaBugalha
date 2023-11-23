@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="estilos/tabuleiro.css">
     <link rel="stylesheet" href="estilos/dado.css">
+    <link rel="stylesheet" href="estilos/global.css">
 
 </head>
 <body>
@@ -13,11 +14,14 @@
     <script type="module" src="./src/Interações.js">
         
     </script>
+    <aside class="player_side">
+        <div class="dado_player" id="dado_player">
+            0
+        </div>
+    </aside>
     <main>
-            <div class="dado_player" id="dado_player">
-                0
-            </div>
-            <table class="tab_player">
+        
+            <table class="tabuleiro">
                 <tbody  id="tab_player">
                     <tr>
                         <td ><span></span></td>
@@ -35,10 +39,14 @@
                         <td ><span></span></td>
                     </tr>
                 </tbody>
-               
             </table>
             
     </main>
+    <aside class="bot_side">
+        <div class="dado_bot" id="dado_bot">
+            0
+        </div>
+    </aside>
     <script   type="module"   src ="./src/Tela.js" ></script>
 
 </body>
