@@ -7,17 +7,16 @@ function Jogador(){
         posicionar_dado:function(x,y){
             let valor = this.dado
             this.tabuleiro[x][y]=valor;
+            atualizar_tela(jogador)
         },
         jogar_dado:function(){
             let numero_aleatorio = Math.floor(Math.random() * 6) + 1;
             this.dado = numero_aleatorio
+            atualizar_tela(jogador)
         }
     }
     return jogador ;
 }
 
 
-let player = Jogador()
-player.jogar_dado()
-player.posicionar_dado(1,1)
-atualizar_tela(player)
+export{ Jogador}
