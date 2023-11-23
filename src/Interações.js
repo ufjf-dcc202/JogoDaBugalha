@@ -9,7 +9,9 @@ let player = Jogador()
                 let collum = rows[x].children
                 for (let y = 0; y < collum.length; y++) {
                     let elemento = collum[y];
-                    if(e.target==elemento){
+                    let posição = player.tabuleiro[x][y]
+
+                    if(e.target==elemento && posição==""){
                         player.posicionar_dado(x,y)
                         player.jogar_dado()
                     }

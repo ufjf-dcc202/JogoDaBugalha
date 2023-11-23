@@ -3,7 +3,7 @@ function Jogador(){
     let jogador = {
         pontos: [0,0,0],
         dado:0,
-        tabuleiro:[[0,0,0],[0,0,0],[0,0,0]],
+        tabuleiro:[["","",""],["","",""],["","",""]],
         posicionar_dado:function(x,y){
             let valor = this.dado
             this.tabuleiro[x][y]=valor;
