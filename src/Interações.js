@@ -1,6 +1,8 @@
 import{Jogador} from './Jogador.js'
-        
+import{Bot} from './Bot.js'
+
 let player = Jogador()
+let bot = Bot()
 
         function clicar_tabuleiro(e){
             let tabuleiro = document.getElementById('tab_player')
@@ -14,6 +16,7 @@ let player = Jogador()
                     if(e.target==elemento && posição==""){
                         player.posicionar_dado(x,y)
                         player.jogar_dado()
+                        bot.jogada()
                     }
                 }
             }

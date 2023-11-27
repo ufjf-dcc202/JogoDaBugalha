@@ -1,6 +1,6 @@
 
-function atualiza_tabuleiro(matriz){
-    let tabuleiro = document.getElementById('tab_player')
+function atualiza_tabuleiro(matriz,elemento){
+    let tabuleiro = elemento
     let rows = tabuleiro.children
 
     for (let x = 0; x < rows.length; x++) {
@@ -14,15 +14,16 @@ function atualiza_tabuleiro(matriz){
         }
     }
 }
-function atualiza_dado(num){
-    let dado = document.getElementById('dado_player')
+function atualiza_dado(num,dado_div){
+    let dado = dado_div
+    console.log(dado)
     dado.innerText=num
 
     
 }
 function atualizar_tela(player){
-    atualiza_tabuleiro(player.tabuleiro)
-    atualiza_dado(player.dado)
+    atualiza_tabuleiro(player.tabuleiro, player.tabuleiro_div)
+    atualiza_dado(player.dado,player.dado_div)
 
 }
 export{atualizar_tela}
