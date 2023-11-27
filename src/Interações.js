@@ -1,8 +1,12 @@
 import{Jogador} from './Jogador.js'
-import{Bot} from './Bot.js'
 
-let player = Jogador()
-let bot = Bot()
+let divTabuleiroPlayer= document.getElementById('tab_player')
+let divDadoPlayer= document.getElementById('dado_player')
+let player = Jogador(divTabuleiroPlayer,divDadoPlayer)
+
+let divTabuleiroBot= document.getElementById('tab_bot')
+let divDadoBot= document.getElementById('dado_bot')
+let bot = Jogador(divTabuleiroBot,divDadoBot)
 function Jogo(player1, player2){
     return{
         player:player1,
