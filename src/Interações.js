@@ -12,29 +12,49 @@ function Jogo(player1, player2){
         player:player1,
         bot:player2,
         calcular_pontos:function(jogador){
-            function calcular_coluna(x){
-                let tabuleiro = jogador.tabuleiro
-
-                let peso = 1
-                let ultimo_valor=0
-                let pontos =0
-                for (let i = 0; i < 3; i++) {
-                    let valor_casa = tabuleiro[i][x]
-                    if(valor_casa==ultimo_valor && valor_casa!=''){
-                        peso++
+            let somaColuna = [0,0,0]
+            let pontosColunas = [[0,0,0],[0,0,0],[0,0,0]]
+            let tabuleiro = jogador.tabuleiro
+                for (let linha = 0; linha < 3; linha++) {
+                    for (let coluna = 0; coluna < 3; coluna++) {
+                        pontosColunas[linha][coluna] = tabuleiro[coluna][linha]    
                     }
                 }
-                pontos= tabuleiro[0][x] + tabuleiro[1][x] +tabuleiro[2][x]
-                
 
-                return pontos
-            }
-            for (let i = 0; i < 3; i++) {
-                jogador.pontos[i]=calcular_coluna(i)
-                
-            }
-
-        },
+                for (let i = 0; i < 3; i++) {
+                    let numRep = 0
+                    let repetidos = 1
+                    for(let j = 0; j < 3; j++){
+                        if(pontosColunas[i][0] == pontosColunas[i][1] && pontosColunas[i][0] != 0 && pontosColunas[i][1] != 0 ){
+                            repetidos++
+                            numRep = parseInt(pontosColunas[i][0])
+                        }
+                        if(pontosColunas[i][0] == pontosColunas[i][2] && pontosColunas[i][0] != 0 && pontosColunas[i][2] != 0){
+                            repetidos++
+                            numRep = parseInt(pontosColunas[i][0])
+                        }
+                        if(pontosColunas[i][1] == pontosColunas[i][2] && repetidos<3 && pontosColunas[i][1] != 0 && pontosColunas[i][2] != 0){
+                            repetidos++
+                            numRep = parseInt(pontosColunas[i][1])
+                        }
+    
+                        if(pontosColunas[i][j] == numRep && pontosColunas[i][j] != 0){
+                            somaColuna[i] += ((numRep * repetidos) * repetidos)/2
+                        }else{
+                            somaColuna[i] += pontosColunas[i][j];
+                        }
+                        console.log(repetidos)
+                        console.log(numRep)
+                        numRep = 0
+                        repetidos = 1
+                    }
+                    
+                }
+                for (let i = 0; i < 3; i++) {
+                    jogador.pontos[i] = somaColuna[i];
+                }
+                jogador.pontos
+            },
         clicar_tabuleiro:function(e){
             let tabuleiro = document.getElementById('tab_player')
             let rows = tabuleiro.children

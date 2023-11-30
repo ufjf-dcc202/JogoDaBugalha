@@ -5,7 +5,7 @@ function Jogador(div_tabuleiro,div_dado){
         dado:0,
         tabuleiro_div:div_tabuleiro,
         dado_div:div_dado,
-        tabuleiro:[["","",""],["","",""],["","",""]],
+        tabuleiro:[[0,0,0],[0,0,0],[0,0,0]],
         posicionar_dado:function(x,y){
             let valor = this.dado
             this.tabuleiro[x][y]=valor;
