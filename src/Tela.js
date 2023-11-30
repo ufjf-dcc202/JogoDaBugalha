@@ -8,18 +8,18 @@ function atualiza_tabuleiro(matriz,elemento){
         for (let y = 0; y < collum.length; y++) {
 
             const casa = collum[y].children[0];
-            casa.innerText=matriz[x][y]
-        
-
+            if(matriz[x][y] == 0){
+                casa.innerText = ""
+            }else{
+                casa.innerText=matriz[x][y]
+            }
         }
     }
 }
 function atualiza_dado(num,dado_div){
     let dado = dado_div
     console.log(dado)
-    dado.innerText=num
-
-    
+    dado.innerText=num    
 }
 function atualizar_tela(player){
     atualiza_tabuleiro(player.tabuleiro, player.tabuleiro_div)
