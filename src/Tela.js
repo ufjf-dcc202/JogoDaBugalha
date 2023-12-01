@@ -1,5 +1,4 @@
-
-function atualiza_tabuleiro(matriz,elemento){
+function atualiza_tabuleiro(matriz, elemento) {
     let tabuleiro = elemento
     let rows = tabuleiro.children
 
@@ -8,22 +7,22 @@ function atualiza_tabuleiro(matriz,elemento){
         for (let y = 0; y < collum.length; y++) {
 
             const casa = collum[y].children[0];
-            if(matriz[x][y] == 0){
+            if (matriz[x][y] == 0) {
                 casa.innerText = ""
-            }else{
-                casa.innerText=matriz[x][y]
+            } else {
+                casa.innerText = matriz[x][y]
             }
         }
     }
 }
-function atualiza_dado(num,dado_div){
+function atualiza_dado(num, dado_div) {
     let dado = dado_div
     console.log(dado)
-    dado.innerText=num    
+    dado.innerText = num
 }
-function atualizar_tela(player){
+function atualizar_tela(player) {
     atualiza_tabuleiro(player.tabuleiro, player.tabuleiro_div)
-    atualiza_dado(player.dado,player.dado_div)
+    atualiza_dado(player.dado, player.dado_div)
 
 }
-export{atualizar_tela}
+export {atualizar_tela}

@@ -1,35 +1,34 @@
 import {atualizar_tela} from './Tela.js'
-function Jogador(div_tabuleiro,div_dado){
+function Jogador(div_tabuleiro, div_dado) {
     let jogador = {
-        pontos: [0,0,0],
-        dado:0,
-        tabuleiro_div:div_tabuleiro,
-        dado_div:div_dado,
-        tabuleiro:[[0,0,0],[0,0,0],[0,0,0]],
-        posicionar_dado:function(x,y){
+        pontos: [0, 0, 0],
+        dado: 0,
+        tabuleiro_div: div_tabuleiro,
+        dado_div: div_dado,
+        tabuleiro: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+        posicionar_dado: function(x, y) {
             let valor = this.dado
-            this.tabuleiro[x][y]=valor;
+            this.tabuleiro[x][y] = valor;
             atualizar_tela(jogador)
         },
-        jogar_dado:function(){
+        jogar_dado: function() {
             let numero_aleatorio = Math.floor(Math.random() * 6) + 1;
             this.dado = numero_aleatorio
             atualizar_tela(jogador)
         },
-        jogada:function(){
-            let posx 
+        jogada: function() {
+            let posx
             let posy
             do {
-                 posx = (Math.floor(Math.random() * 3) + 1)-1; 
-                 posy = (Math.floor(Math.random() * 3) + 1)-1; 
-                
-            } while (this.tabuleiro[posx][posy]!="");
+                posx = (Math.floor(Math.random() * 3) + 1) - 1;
+                posy = (Math.floor(Math.random() * 3) + 1) - 1;
+
+            } while (this.tabuleiro[posx][posy] != "");
             this.jogar_dado();
-            this.posicionar_dado(posx,posy)
+            this.posicionar_dado(posx, posy)
         }
     }
-    return jogador ;
+    return jogador;
 }
 
-
-export{ Jogador}
+export {Jogador}
