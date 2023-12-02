@@ -1,4 +1,5 @@
 import {Jogador} from './Jogador.js'
+import {atualizar_tela} from './Tela.js'
 
 let divTabuleiroPlayer = document.getElementById('tab_player')
 let divDadoPlayer = document.getElementById('dado_player')
@@ -57,6 +58,17 @@ function Jogo(player1, player2) {
             }
             jogador.pontos
         },
+        ciclo_de_jogo: function(x,y){
+            this.player.posicionar_dado(x, y)
+            this.calcular_pontos(this.player)
+            console.log(player1.pontos)
+            this.player.jogar_dado()
+            this.bot.jogada()
+            this.calcular_pontos(this.bot)
+            atualizar_tela(this.player)
+            atualizar_tela(this.bot)
+            console.log(this.pontos)
+        },
         clicar_tabuleiro: function(e) {
             let tabuleiro = document.getElementById('tab_player')
             let rows = tabuleiro.children
@@ -67,14 +79,8 @@ function Jogo(player1, player2) {
                     let posição = this.player.tabuleiro[x][y]
                     if (e.target == elemento && posição == "") {
                         this.player.posicionar_dado(x, y)
-                        this.calcular_pontos(this.player)
-                        console.log(player1.pontos)
 
-                        this.player.jogar_dado()
-
-                        this.bot.jogada()
-                        this.calcular_pontos(this.bot)
-                        console.log(this.pontos)
+                        this.ciclo_de_jogo(x,y)
                     }
                 }
             }

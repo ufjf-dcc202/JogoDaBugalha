@@ -1,3 +1,4 @@
+
 function get_elementos_tabuleiro(tabuleiro,elemento) {
     const rows = tabuleiro.children
     let elementos = []
