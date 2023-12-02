@@ -12,7 +12,7 @@ function get_elementos_tabuleiro(tabuleiro,elemento) {
     }
     return elementos
 }
-function get_elementos_tabuleiro(elementos,pontos) {
+function set_elementos_tabuleiro(elementos,pontos) {
     for (let i = 0; i < elementos.length; i++) {
          elementos[i].innerText = pontos[i];
         
