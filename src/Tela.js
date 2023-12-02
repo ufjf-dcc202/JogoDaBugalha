@@ -12,17 +12,21 @@ function get_elementos_tabuleiro(tabuleiro,elemento) {
     }
     return elementos
 }
-function set_elementos_tabuleiro(elementos,dados) {
+function set_elementos_tabuleiro(elementos,dados, ignora_zeros) {
     console.log(elementos, dados)
 
     for (let i = 0; i < elementos.length; i++) {
-         elementos[i].innerText = dados[i];
+        if( ignora_zeros ==true && dados[i]==0 ){
+            elementos[i].innerText = "";
+        }else{
+            elementos[i].innerText = dados[i];
+        }
     }
 }
 
 function atualiza_tabuleiro(elemento, casas,pontos) {
     const tabuleiro = elemento
-    
+
     let casas_sanitizada = []
     for (let i = 0; i < casas.length; i++) {
         for (let j = 0; j < casas.length; j++) {
@@ -34,8 +38,8 @@ function atualiza_tabuleiro(elemento, casas,pontos) {
 
     const casas_ctn = get_elementos_tabuleiro(tabuleiro,"TD")
     const pontos_ctn = get_elementos_tabuleiro(tabuleiro,"TH")
-    set_elementos_tabuleiro(pontos_ctn, pontos)
-    set_elementos_tabuleiro(casas_ctn, casas_sanitizada)
+    set_elementos_tabuleiro(pontos_ctn, pontos,false)
+    set_elementos_tabuleiro(casas_ctn, casas_sanitizada,true)
 
 }
 function atualiza_dado(num, dado_div) {
