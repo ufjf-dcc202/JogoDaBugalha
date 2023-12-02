@@ -1,10 +1,11 @@
 import {atualizar_tela} from './Tela.js'
-function Jogador(div_tabuleiro, div_dado) {
+function Jogador(div_tabuleiro, div_dado,pontos_containers) {
     let jogador = {
         pontos: [0, 0, 0],
         dado: 0,
         tabuleiro_div: div_tabuleiro,
         dado_div: div_dado,
+        pontos_container:pontos_containers,
         tabuleiro: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
         posicionar_dado: function(x, y) {
             let valor = this.dado
