@@ -12,31 +12,31 @@ function get_elementos_tabuleiro(tabuleiro,elemento) {
     }
     return elementos
 }
-function set_elementos_tabuleiro(elementos,pontos) {
+function set_elementos_tabuleiro(elementos,dados) {
+    console.log(elementos, dados)
+
     for (let i = 0; i < elementos.length; i++) {
-         elementos[i].innerText = pontos[i];
-        
+         elementos[i].innerText = dados[i];
     }
 }
 
-function atualiza_tabuleiro(matriz, elemento, pontos) {
+function atualiza_tabuleiro(elemento, casas,pontos) {
     const tabuleiro = elemento
-    const rows = tabuleiro.children
-    const tamanho = 3
     
-    for (let x = 0; x < tamanho; x++) {
-        let collum = rows[x].children
-        for (let y = 0; y < tamanho; y++) {
-
-            const casa = collum[y].children[0];
-            if (matriz[x][y] == 0) {
-                casa.innerText = ""
-            } else {
-                casa.innerText = matriz[x][y]
-            }
-            
+    let casas_sanitizada = []
+    for (let i = 0; i < casas.length; i++) {
+        for (let j = 0; j < casas.length; j++) {
+            const element = casas[i][j];
+            casas_sanitizada.push(element)
         }
+        
     }
+
+    const casas_ctn = get_elementos_tabuleiro(tabuleiro,"TD")
+    const pontos_ctn = get_elementos_tabuleiro(tabuleiro,"TH")
+    set_elementos_tabuleiro(pontos_ctn, pontos)
+    set_elementos_tabuleiro(casas_ctn, casas_sanitizada)
+
 }
 function atualiza_dado(num, dado_div) {
     const dado = dado_div
@@ -44,7 +44,7 @@ function atualiza_dado(num, dado_div) {
 }
 
 function atualizar_tela(player) {
-    atualiza_tabuleiro(player.tabuleiro, player.tabuleiro_div)
+    atualiza_tabuleiro(player.tabuleiro_div, player.tabuleiro,player.pontos )
     atualiza_dado(player.dado, player.dado_div)
 
 }
