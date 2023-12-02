@@ -21,9 +21,18 @@ function atualiza_dado(num, dado_div) {
     console.log(dado)
     dado.innerText = num
 }
+function atualiza_pontos(m_pontos, elementos) {
+    for (let i = 0; i < elementos.length; i++) {
+        const th = elementos[i];
+        const ponto = m_pontos[i];
+        th.innerText=ponto
+
+    }
+   
+}
 function atualizar_tela(player) {
     atualiza_tabuleiro(player.tabuleiro, player.tabuleiro_div)
     atualiza_dado(player.dado, player.dado_div)
-
+    atualiza_pontos(player.pontos,player.pontos_container)
 }
 export {atualizar_tela}
