@@ -74,7 +74,7 @@ function Jogo(player1, player2) {
 
                         this.bot.jogada()
                         this.calcular_pontos(this.bot)
-                        console.log(player2.pontos)
+                        console.log(this.pontos)
                     }
                 }
             }

@@ -12,6 +12,7 @@ function atualiza_tabuleiro(matriz, elemento) {
             } else {
                 casa.innerText = matriz[x][y]
             }
+            
         }
     }
 }
