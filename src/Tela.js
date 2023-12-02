@@ -1,27 +1,54 @@
-function atualiza_tabuleiro(matriz, elemento) {
-    let tabuleiro = elemento
-    let rows = tabuleiro.children
-
-    for (let x = 0; x < rows.length; x++) {
+function get_elementos_tabuleiro(tabuleiro,elemento) {
+    const rows = tabuleiro.children
+    let elementos = []
+    for (let x = 0; x < 4; x++) {
         let collum = rows[x].children
-        for (let y = 0; y < collum.length; y++) {
+        for (let i = 0; i < collum.length; i++) {
+            const casa = collum[i];
+            if (casa.tagName==elemento) {
+                elementos.push(casa)
+            }   
+        }
+    }
+    return elementos
+}
+function set_elementos_tabuleiro(elementos,dados, ignora_zeros) {
+    console.log(elementos, dados)
 
-            const casa = collum[y].children[0];
-            if (matriz[x][y] == 0) {
-                casa.innerText = ""
-            } else {
-                casa.innerText = matriz[x][y]
-            }
+    for (let i = 0; i < elementos.length; i++) {
+        if( ignora_zeros ==true && dados[i]==0 ){
+            elementos[i].innerText = "";
+        }else{
+            elementos[i].innerText = dados[i];
         }
     }
 }
+
+function atualiza_tabuleiro(elemento, casas,pontos) {
+    const tabuleiro = elemento
+
+    let casas_sanitizada = []
+    for (let i = 0; i < casas.length; i++) {
+        for (let j = 0; j < casas.length; j++) {
+            const element = casas[i][j];
+            casas_sanitizada.push(element)
+        }
+        
+    }
+
+    const casas_ctn = get_elementos_tabuleiro(tabuleiro,"TD")
+    const pontos_ctn = get_elementos_tabuleiro(tabuleiro,"TH")
+    set_elementos_tabuleiro(pontos_ctn, pontos,false)
+    set_elementos_tabuleiro(casas_ctn, casas_sanitizada,true)
+
+}
 function atualiza_dado(num, dado_div) {
-    let dado = dado_div
-    console.log(dado)
+    const dado = dado_div
     dado.innerText = num
 }
+
 function atualizar_tela(player) {
-    atualiza_tabuleiro(player.tabuleiro, player.tabuleiro_div)
+    atualiza_tabuleiro(player.tabuleiro_div, player.tabuleiro,player.pontos )
     atualiza_dado(player.dado, player.dado_div)
 
 }
