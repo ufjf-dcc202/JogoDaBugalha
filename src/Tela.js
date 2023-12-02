@@ -14,7 +14,6 @@ function get_elementos_tabuleiro(tabuleiro,elemento) {
     return elementos
 }
 function set_elementos_tabuleiro(elementos,dados, ignora_zeros) {
-    console.log(elementos, dados)
 
     for (let i = 0; i < elementos.length; i++) {
         if( ignora_zeros ==true && dados[i]==0 ){
