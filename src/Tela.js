@@ -12,12 +12,13 @@ function get_elementos_tabuleiro(tabuleiro,elemento) {
     }
     return elementos
 }
-function atualiza_pontos(elementos,pontos) {
+function get_elementos_tabuleiro(elementos,pontos) {
     for (let i = 0; i < elementos.length; i++) {
          elementos[i].innerText = pontos[i];
         
     }
 }
+
 function atualiza_tabuleiro(matriz, elemento, pontos) {
     const tabuleiro = elemento
     const rows = tabuleiro.children
