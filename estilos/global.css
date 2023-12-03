@@ -8,7 +8,7 @@ body{
 .player_side{
     display: flex;
     flex-direction: end;
-    flex-direction: column  ;
+    flex-direction: column-reverse  ;
     justify-content: center;
     align-items: flex-end;
     width: 100%;

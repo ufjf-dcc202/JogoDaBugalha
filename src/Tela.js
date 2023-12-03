@@ -41,15 +41,21 @@ function atualiza_tabuleiro(elemento, casas,pontos) {
     set_elementos_tabuleiro(pontos_ctn, pontos,false)
     set_elementos_tabuleiro(casas_ctn, casas_sanitizada,true)
 
+    
+
 }
+
 function atualiza_dado(num, dado_div) {
     const dado = dado_div
     dado.innerText = num
 }
 
 function atualizar_tela(player) {
-    atualiza_tabuleiro(player.tabuleiro_div, player.tabuleiro,player.pontos )
+    atualiza_tabuleiro(player.tabuleiro_div, player.tabuleiro,player.pontos, player.pontos_div)
     atualiza_dado(player.dado, player.dado_div)
+
+    atualiza_dado(player.ponto_total, player.div_pontos)
+
 
 }
 export {atualizar_tela}

@@ -4,10 +4,12 @@ import {atualizar_tela} from './Tela.js'
 let divTabuleiroPlayer = document.getElementById('tab_player')
 let divDadoPlayer = document.getElementById('dado_player')
 let divPontoPlayer = document.querySelector('#pontos_player')
-let player = Jogador(divTabuleiroPlayer, divDadoPlayer)
+let player = Jogador(divTabuleiroPlayer, divDadoPlayer,divPontoPlayer)
 let divTabuleiroBot = document.getElementById('tab_bot')
 let divDadoBot = document.getElementById('dado_bot')
-let bot = Jogador(divTabuleiroBot, divDadoBot,divPontoPlayer)
+let divPontoBot = document.querySelector('#pontos_bot')
+
+let bot = Jogador(divTabuleiroBot, divDadoBot,divPontoBot)
 
 
 function Jogo(player1, player2) {
