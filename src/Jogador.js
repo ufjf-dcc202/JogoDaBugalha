@@ -13,7 +13,8 @@ function Jogador(div_tabuleiro, div_dado) {
         posicionar_dado: function(x, y) {
             let valor = this.dado
             this.tabuleiro[x][y] = valor;
-            this.calcular_pontos()
+            this.calcular_pontos_coluna()
+            this.calcular_total_pontos()
         },
         jogar_dado: function() {
             let numero_aleatorio = Math.floor(Math.random() * 6) + 1;
@@ -30,7 +31,8 @@ function Jogador(div_tabuleiro, div_dado) {
             this.jogar_dado();
             this.posicionar_dado(posx, posy)
         },
-        calcular_pontos: function() {
+
+        calcular_pontos_coluna: function() {
             let somaColuna = [0, 0, 0]
             let pontosColunas = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
             let tabuleiro = this.tabuleiro
@@ -72,8 +74,18 @@ function Jogador(div_tabuleiro, div_dado) {
             for (let i = 0; i < 3; i++) {
                 jogador.pontos[i] = somaColuna[i];
             }
-            jogador.pontos
         },
+        calcular_total_pontos: function(){
+            const pontos = this.pontos
+           
+            const tamanho = pontos.length
+            this.ponto_total=0
+
+            for (let i = 0; i < tamanho; i++) {
+                this.ponto_total+=pontos[i]
+            }
+            
+        }
     }
     return jogador;
 }
