@@ -11,6 +11,7 @@ function Jogador(div_tabuleiro, div_dado, div_pontos) {
         tabuleiro: [[0, 0, 0],
                      [0, 0, 0],
                       [0, 0, 0]],
+                      
         posicionar_dado: function(x, y) {
             let valor = this.dado
             this.tabuleiro[x][y] = valor;
@@ -20,6 +21,7 @@ function Jogador(div_tabuleiro, div_dado, div_pontos) {
         jogar_dado: function() {
             let numero_aleatorio = Math.floor(Math.random() * 6) + 1;
             this.dado = numero_aleatorio
+            
         },
         jogada: function() {
             let posx
@@ -29,7 +31,6 @@ function Jogador(div_tabuleiro, div_dado, div_pontos) {
                 posy = (Math.floor(Math.random() * 3) + 1) - 1;
 
             } while (this.tabuleiro[posx][posy] != "");
-            this.jogar_dado();
             this.posicionar_dado(posx, posy)
         },
 

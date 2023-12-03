@@ -54,9 +54,11 @@ function Jogo(player1, player2) {
             this.player.posicionar_dado(x, y)
             this.player.jogar_dado()
             this.bot.jogada()
-            
+            this.bot.jogar_dado()
+
          
             this.checa_vitoria()
+
             atualizar_tela(this.player)
             atualizar_tela(this.bot)
         },
@@ -99,5 +101,8 @@ function setar_click() {
 }
 setar_click()
 player.jogar_dado()
+bot.jogar_dado()
 atualizar_tela(player)
+atualizar_tela(bot)
+
 
