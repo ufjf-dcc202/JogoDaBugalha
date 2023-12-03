@@ -3,61 +3,20 @@ import {atualizar_tela} from './Tela.js'
 
 let divTabuleiroPlayer = document.getElementById('tab_player')
 let divDadoPlayer = document.getElementById('dado_player')
-let player = Jogador(divTabuleiroPlayer, divDadoPlayer)
-
+let divPontoPlayer = document.querySelector('#pontos_player')
+let player = Jogador(divTabuleiroPlayer, divDadoPlayer,divPontoPlayer)
 let divTabuleiroBot = document.getElementById('tab_bot')
 let divDadoBot = document.getElementById('dado_bot')
-let bot = Jogador(divTabuleiroBot, divDadoBot)
+let divPontoBot = document.querySelector('#pontos_bot')
+
+let bot = Jogador(divTabuleiroBot, divDadoBot,divPontoBot)
+
+
 function Jogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
-        calcular_pontos: function(jogador) {
-            let somaColuna = [0, 0, 0]
-            let pontosColunas = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-            let tabuleiro = jogador.tabuleiro
-            for (let linha = 0; linha < 3; linha++) {
-                for (let coluna = 0; coluna < 3; coluna++) {
-                    pontosColunas[linha][coluna] = tabuleiro[coluna][linha]
-                }
-            }
-
-            for (let i = 0; i < 3; i++) {
-                let numRep = 0
-                let repetidos = 1
-                for (let j = 0; j < 3; j++) {
-                    if (pontosColunas[i][0] == pontosColunas[i][1] && pontosColunas[i][0] != 0 && pontosColunas[i][1] != 0) {
-                        repetidos++
-                        numRep = parseInt(pontosColunas[i][0])
-                    }
-                    if (pontosColunas[i][0] == pontosColunas[i][2] && pontosColunas[i][0] != 0 && pontosColunas[i][2] != 0) {
-                        repetidos++
-                        numRep = parseInt(pontosColunas[i][0])
-                    }
-                    if (pontosColunas[i][1] == pontosColunas[i][2] && repetidos < 3 && pontosColunas[i][1] != 0 && pontosColunas[i][2] != 0) {
-                        repetidos++
-                        numRep = parseInt(pontosColunas[i][1])
-                    }
-
-                    if (pontosColunas[i][j] == numRep && pontosColunas[i][j] != 0) {
-                        if (repetidos == 2) {
-                            somaColuna[i] += ((numRep * repetidos) * repetidos) / 2
-                        } else if (repetidos == 3) {
-                            somaColuna[i] += ((numRep * repetidos) * repetidos) / 3
-                        }
-                    } else {
-                        somaColuna[i] += pontosColunas[i][j];
-                    }
-                    numRep = 0
-                    repetidos = 1
-                }
-
-            }
-            for (let i = 0; i < 3; i++) {
-                jogador.pontos[i] = somaColuna[i];
-            }
-            jogador.pontos
-        },
+       
         checa_vitoria: function() {
             const tab_player = this.player.tabuleiro
             const tab_player2 = this.bot.tabuleiro
@@ -95,15 +54,15 @@ function Jogo(player1, player2) {
             this.player.posicionar_dado(x, y)
             this.player.jogar_dado()
             this.bot.jogada()
-            this.calcular_pontos(this.player)
-            this.calcular_pontos(this.bot)
+            this.bot.jogar_dado()
+
+         
             this.checa_vitoria()
-            console.log(player1.pontos)
 
             atualizar_tela(this.player)
             atualizar_tela(this.bot)
         },
-        clicar_tabuleiro: function(e) {
+        pega_posições: function(e) {
             let tabuleiro = document.getElementById('tab_player')
             let rows = tabuleiro.children
             for (let x = 0; x < 3; x++) {
@@ -133,7 +92,7 @@ function setar_click() {
             if (collum[y].tagName == 'TD') {
                 let jogo = Jogo(player, bot)
                 elemento.addEventListener("click", (e)=>{
-                    jogo.clicar_tabuleiro(e)
+                    jogo.pega_posições(e)
                 }
                 );
             }
@@ -142,3 +101,8 @@ function setar_click() {
 }
 setar_click()
 player.jogar_dado()
+bot.jogar_dado()
+atualizar_tela(player)
+atualizar_tela(bot)
+
+
