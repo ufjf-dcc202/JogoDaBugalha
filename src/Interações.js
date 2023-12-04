@@ -16,29 +16,49 @@ function Jogo(player1, player2) {
         player: player1,
         bot: player2,
 
-        deleta_coluna: function(coluna_jogada){
+        deleta_coluna: function(coluna_jogada, who_delete){
 
             const tabuleiro = this.player.tabuleiro
             const tabuleiro2 = this.bot.tabuleiro
             const tamanho = tabuleiro.length
             
             function pegarNumRepetido(){
+                let repetido = 0
                 for (let x = 0; x < tamanho; x++) {
+
                     for (let y = 0; y < tamanho; y++) {
-                        const casa1 = tabuleiro[coluna_jogada][x];
-                        const casa2 = tabuleiro2[coluna_jogada][y];
-                        if(casa1==casa2){
-                            repitido= casa1
+
+
+                        const casa1 = tabuleiro[x][coluna_jogada];
+                        const casa2 = tabuleiro2[y][coluna_jogada];
+
+                        if(casa1==casa2 && casa1!=0 && casa2!=0){
+                            repetido= casa1
                         }
                     }
                     
                 }
+                console.log("repetido",repetido,"casa jogada",coluna_jogada)
                 return repetido 
-            }
-            const repetido = pegarNumRepetido()
-            
 
-            console.log(repitido)
+            }
+
+            function apagar_repetidos( repetido){
+                for (let y = 0; y < tamanho; y++) {
+                    const casa = who_delete.tabuleiro[coluna_jogada][y];
+                    
+                    if(casa==repetido){
+                        who_delete.tabuleiro[coluna_jogada][y]=0
+                    }
+                }
+            }
+
+
+
+            let repetido = pegarNumRepetido()
+
+            apagar_repetidos(repetido)
+
 
         },
         checa_vitoria: function () {
@@ -73,8 +93,9 @@ function Jogo(player1, player2) {
         },
 
         ciclo_de_jogo: function (x, y) {
+            this.player.dado=2
             this.player.posicionar_dado(x, y)
-            this.deleta_coluna(x)
+            this.deleta_coluna(y,bot)
 
             this.player.jogar_dado()
             this.bot.jogada()
