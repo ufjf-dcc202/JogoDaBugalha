@@ -16,6 +16,28 @@ function Jogo(player1, player2) {
         player: player1,
         bot: player2,
 
+        deleta_coluna: function(coluna_jogada){
+
+            const tabuleiro = this.player.tabuleiro
+            const tabuleiro2 = this.bot.tabuleiro
+            const tamanho = tabuleiro.length
+            let repitido = 0
+
+            for (let x = 0; x < tamanho; x++) {
+                for (let y = 0; y < tamanho; y++) {
+                    const casa1 = tabuleiro[coluna_jogada][x];
+                    const casa2 = tabuleiro2[coluna_jogada][y];
+                    if(casa1==casa2){
+                        repitido= casa1
+                    }
+                }
+                
+            }
+            
+
+            console.log(repitido)
+
+        },
         checa_vitoria: function () {
             const tab_player = this.player.tabuleiro
             const tab_player2 = this.bot.tabuleiro
@@ -49,6 +71,8 @@ function Jogo(player1, player2) {
 
         ciclo_de_jogo: function (x, y) {
             this.player.posicionar_dado(x, y)
+            this.deleta_coluna(x)
+
             this.player.jogar_dado()
             this.bot.jogada()
             this.bot.jogar_dado()
