@@ -21,18 +21,21 @@ function Jogo(player1, player2) {
             const tabuleiro = this.player.tabuleiro
             const tabuleiro2 = this.bot.tabuleiro
             const tamanho = tabuleiro.length
-            let repitido = 0
-
-            for (let x = 0; x < tamanho; x++) {
-                for (let y = 0; y < tamanho; y++) {
-                    const casa1 = tabuleiro[coluna_jogada][x];
-                    const casa2 = tabuleiro2[coluna_jogada][y];
-                    if(casa1==casa2){
-                        repitido= casa1
+            
+            function pegarNumRepetido(){
+                for (let x = 0; x < tamanho; x++) {
+                    for (let y = 0; y < tamanho; y++) {
+                        const casa1 = tabuleiro[coluna_jogada][x];
+                        const casa2 = tabuleiro2[coluna_jogada][y];
+                        if(casa1==casa2){
+                            repitido= casa1
+                        }
                     }
+                    
                 }
-                
+                return repetido 
             }
+            const repetido = pegarNumRepetido()
             
 
             console.log(repitido)
