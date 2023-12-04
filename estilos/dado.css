@@ -1,4 +1,5 @@
-.dado_player{
+.dado {
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,19 +9,16 @@
     text-align: center;
     border: 2px solid black;
 }
-.dado_bot{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    height: 150px;
-    max-width: 300px;
-
-    text-align: center;
-    border: 2px solid black;
+.dado.player{
+    grid-row: 3;
+}
+.dado.bot{
+    grid-row: 1;
 }
 
-.pontos_player{
+.pontos{
+    grid-row: 2;
+
      display: flex;
     align-items: center;
     justify-content: center;
@@ -30,14 +28,4 @@
 
     text-align: center;
     border: 2px solid black;
-}
-.blank{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    height: 150px;
-    max-width: 300px;
-    text-align: center;
-   
 }
