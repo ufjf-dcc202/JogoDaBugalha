@@ -33,7 +33,6 @@ function atualiza_tabuleiro(elemento, casas, pontos) {
             const element = casas[i][j];
             casas_sanitizada.push(element)
         }
-
     }
 
     const casas_ctn = get_elementos_tabuleiro(tabuleiro, "TD")
