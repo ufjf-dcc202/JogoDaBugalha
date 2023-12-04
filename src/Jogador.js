@@ -28,6 +28,7 @@ function Jogador(div_tabuleiro, div_dado, div_pontos) {
 
             } while (this.tabuleiro[posx][posy] != "");
             this.posicionar_dado(posx, posy)
+            return [posx, posy]
         },
 
         calcular_pontos_coluna: function () {
