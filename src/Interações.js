@@ -16,7 +16,29 @@ function Jogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
-       
+        elimina_casas: function(who_delete){
+            
+            let tabuleiro1 = player.tabuleiro
+            let tabuleiro2 = bot.tabuleiro
+            let valor_repetido = [0,0,0]
+
+            for (let posx = 0; posx < tabuleiro1.length; posx++) {
+                for (let posy = 0; posy < tabuleiro1[posx].length; posy++) {
+                    const casa1 = tabuleiro1[posy][posx]
+                    for (let z = 0; z < tabuleiro1[posx].length; z++) {
+                        const casa2 = tabuleiro2[z][posy];
+                        if (casa1==casa2 && casa1!=0 && casa2!=0) {
+                            valor_repetido[posx]= casa2
+                        }
+                    }
+                    
+                }
+            }
+
+            console.log(valor_repetido)
+           
+            
+        },
         checa_vitoria: function() {
             const tab_player = this.player.tabuleiro
             const tab_player2 = this.bot.tabuleiro
@@ -49,16 +71,14 @@ function Jogo(player1, player2) {
             }
 
         },
-
         ciclo_de_jogo: function(x,y){
             this.player.posicionar_dado(x, y)
+            this.elimina_casas(this.bot)
             this.player.jogar_dado()
             this.bot.jogada()
+            this.elimina_casas(this.player)
             this.bot.jogar_dado()
-
-         
             this.checa_vitoria()
-
             atualizar_tela(this.player)
             atualizar_tela(this.bot)
         },
