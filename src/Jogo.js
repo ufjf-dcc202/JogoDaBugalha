@@ -2,7 +2,12 @@ export function Jogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
-
+        start:function(){
+            player.jogar_dado()
+            bot.jogar_dado()
+            atualizar_tela(player)
+            atualizar_tela(bot)
+        },
         deleta_coluna: function (coluna_jogada, who_delete) {
 
             const tabuleiro = this.player.tabuleiro
