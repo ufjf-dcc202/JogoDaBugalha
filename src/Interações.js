@@ -94,15 +94,13 @@ function Jogo(player1, player2) {
             this.player.posicionar_dado(x, y)
             this.deleta_coluna(y, bot)
             this.player.jogar_dado()
-
             let bot_pos = this.bot.jogada()
-
             this.bot.jogar_dado()
             this.deleta_coluna(bot_pos[1], player)
-
-            this.checa_vitoria()
             atualizar_tela(this.player)
             atualizar_tela(this.bot)
+            this.checa_vitoria()
+
         },
         pega_posições: function (e) {
             let tabuleiro = document.getElementById('tab_player')
