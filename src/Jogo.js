@@ -1,12 +1,14 @@
+import {atualizar_tela} from "./Tela.js"
+
 export function Jogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
         start:function(){
-            player.jogar_dado()
-            bot.jogar_dado()
-            atualizar_tela(player)
-            atualizar_tela(bot)
+            this.player.jogar_dado()
+            this.bot.jogar_dado()
+            atualizar_tela(this.player)
+            atualizar_tela(this.bot)
         },
         deleta_coluna: function (coluna_jogada, who_delete) {
 
@@ -84,11 +86,11 @@ export function Jogo(player1, player2) {
         ciclo_de_jogo: function (x, y) {
 
             this.player.posicionar_dado(x, y)
-            this.deleta_coluna(y, bot)
+            this.deleta_coluna(y, this.bot)
             this.player.jogar_dado()
             let bot_pos = this.bot.jogada()
             this.bot.jogar_dado()
-            this.deleta_coluna(bot_pos[1], player)
+            this.deleta_coluna(bot_pos[1], this.player)
             atualizar_tela(this.player)
             atualizar_tela(this.bot)
             this.checa_vitoria()
