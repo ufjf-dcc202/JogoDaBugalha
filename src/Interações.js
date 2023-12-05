@@ -58,18 +58,27 @@ function Jogo(player1, player2) {
             const pontos_player1 = this.player.pontos
             const pontos_player2 = this.bot.pontos
             const pontos = [0, 0]
-            let fim_de_jogo = true
 
-            for (let x = 0; x < tab_player.length; x++) {
-                for (let y = 0; y < tab_player.length; y++) {
-                    if (tab_player[x][y] == 0 || tab_player2[x][y] == 0) {
-                        fim_de_jogo = false
+
+            function checa_tabuleiro(tabuleiro){
+                const tamanho = tabuleiro.length
+                let fim_de_jogo = true
+                for (let x = 0; x < tamanho; x++) {
+                    for (let y = 0; y < tamanho; y++) {
+                        if (tabuleiro[x][y] == 0) {
+                            fim_de_jogo = false
+                        }
+    
                     }
-
                 }
+                return fim_de_jogo;
             }
+           
+           
+            let fim_de_jogo= [checa_tabuleiro(tab_player), checa_tabuleiro(tab_player2)]
+            
 
-            if (fim_de_jogo == true) {
+            if (fim_de_jogo[0] || fim_de_jogo[1]) {
                 for (let ponto = 0; ponto < 3; ponto++) {
                     pontos[0] += parseInt(pontos_player1[ponto])
                     pontos[1] += parseInt(pontos_player2[ponto])
@@ -124,6 +133,7 @@ function setar_click() {
         let collum = rows[x].children
 
         for (let y = 0; y < collum.length; y++) {
+            
             let elemento = collum[y];
             if (collum[y].tagName == 'TD') {
                 let jogo = Jogo(player, bot)
