@@ -40,15 +40,15 @@ function Jogador(div_tabuleiro, div_dado, div_pontos) {
                 for (let j = 0; j < 3; j++) {
                     if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[0][i] != 0 && tabuleiro[1][i] != 0) {
                         repetidos++
-                        numRep = parseInt(tabuleiro[0][i])
+                        numRep = tabuleiro[0][i]
                     }
                     if (tabuleiro[0][i] == tabuleiro[2][i] && tabuleiro[0][i] != 0 && tabuleiro[2][i] != 0) {
                         repetidos++
-                        numRep = parseInt(tabuleiro[0][i])
+                        numRep = tabuleiro[0][i]
                     }
                     if (tabuleiro[1][i] == tabuleiro[2][i] && repetidos < 3 && tabuleiro[1][i] != 0 && tabuleiro[2][i] != 0) {
                         repetidos++
-                        numRep = parseInt(tabuleiro[1][i])
+                        numRep = tabuleiro[1][i]
                     }
 
                     if (tabuleiro[j][i] == numRep && tabuleiro[j][i] != 0) {
