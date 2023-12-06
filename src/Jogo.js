@@ -1,4 +1,4 @@
-import {atualizar_tela} from "./Tela.js"
+import {atualizarTela} from "./Tela.js"
 
 export function criaJogo(player1, player2) {
     return {
@@ -7,8 +7,8 @@ export function criaJogo(player1, player2) {
         start:function(){
             this.player.jogar_dado()
             this.bot.jogar_dado()
-            atualizar_tela(this.player)
-            atualizar_tela(this.bot)
+            atualizarTela(this.player)
+            atualizarTela(this.bot)
         },
         deleta_coluna: function (coluna_jogada, who_delete) {
 
@@ -91,8 +91,8 @@ export function criaJogo(player1, player2) {
             let bot_pos = this.bot.jogada()
             this.bot.jogar_dado()
             this.deleta_coluna(bot_pos[1], this.player)
-            atualizar_tela(this.player)
-            atualizar_tela(this.bot)
+            atualizarTela(this.player)
+            atualizarTela(this.bot)
             this.checa_vitoria()
 
         },

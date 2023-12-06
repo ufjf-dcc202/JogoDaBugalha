@@ -1,5 +1,5 @@
 
-function get_elementos_tabuleiro(tabuleiro, elemento) {
+function getElementos(tabuleiro, elemento) {
     const rows = tabuleiro.children
     let elementos = []
     for (let x = 0; x < 4; x++) {
@@ -13,44 +13,52 @@ function get_elementos_tabuleiro(tabuleiro, elemento) {
     }
     return elementos
 }
-function set_elementos_tabuleiro(elementos, dados, ignora_zeros) {
-
-    for (let i = 0; i < elementos.length; i++) {
+function setElementos(elementos, dados, ignora_zeros) {
+    const tamanho = dados.length
+    for (let i = 0; i < tamanho; i++) {
         if (ignora_zeros == true && dados[i] == 0) {
             elementos[i].textContent = "";
         } else {
             elementos[i].textContent = dados[i];
         }
     }
+    if(tamanho==0){
+        console.log("s")
+        elemento.textContent = dado[i];
+    }
 }
 
-function atualiza_tabuleiro(elemento, casas, pontos) {
-    const tabuleiro = elemento
+
+function atualizaTabuleiro(jogador) {
+    const tabuleiroCtn = jogador.tabuleiro_div
+    const matrizTabuleiro = jogador.tabuleiro
+    const matrizPontos = jogador.pontos
 
     let casas_sanitizada = []
-    for (let i = 0; i < casas.length; i++) {
-        for (let j = 0; j < casas.length; j++) {
-            const element = casas[i][j];
+
+    for (let i = 0; i < matrizTabuleiro.length; i++) {
+        for (let j = 0; j < matrizTabuleiro.length; j++) {
+            const element = matrizTabuleiro[i][j];
             casas_sanitizada.push(element)
         }
     }
+    const casas_ctn = getElementos(tabuleiroCtn, "TD")
+    const pontos_ctn = getElementos(tabuleiroCtn, "TH")
+    setElementos(pontos_ctn, matrizPontos, false)
+    setElementos(casas_ctn, casas_sanitizada, true)
+}
+function atualizaAsides(jogador){
+    const pontoTotal = [jogador.ponto_total]
+    const pontoTotalCtn= [jogador.div_pontos]
+    const dado= [jogador.dado]
+    const dadoCtn= [jogador.dado_div]
 
-    const casas_ctn = get_elementos_tabuleiro(tabuleiro, "TD")
-    const pontos_ctn = get_elementos_tabuleiro(tabuleiro, "TH")
-    set_elementos_tabuleiro(pontos_ctn, pontos, false)
-    set_elementos_tabuleiro(casas_ctn, casas_sanitizada, true)
+    setElementos(dadoCtn,dado,false)
+    setElementos(pontoTotalCtn, pontoTotal,false)
 }
 
-function atualiza_dado(num, dado_div) {
-    const dado = dado_div
-    dado.textContent = num
+function atualizarTela(player) {
+    atualizaTabuleiro( player)
+    atualizaAsides(player)
 }
-
-function atualizar_tela(player) {
-    atualiza_tabuleiro(player.tabuleiro_div, player.tabuleiro, player.pontos, player.pontos_div)
-    atualiza_dado(player.dado, player.dado_div)
-
-    atualiza_dado(player.ponto_total, player.div_pontos)
-
-}
-export { atualizar_tela }
+export { atualizarTela }
