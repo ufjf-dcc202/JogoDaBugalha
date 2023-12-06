@@ -8,18 +8,18 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
         div_pontos: div_pontos,
         tabuleiro: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
 
-        posicionar_dado: function (x, y) {
+        posicionar_dado: function(x, y) {
             let valor = this.dado
             this.tabuleiro[x][y] = valor;
             this.calcular_pontos_coluna()
-            this.calcular_total_pontos()
+            this.calcularPontoTotal()
         },
-        jogar_dado: function () {
-            let numero_aleatorio = Math.floor(Math.random() * 6) + 1;
-            this.dado = numero_aleatorio
+        jogar_dado: function() {
+            let numeroAleatorio = Math.floor(Math.random() * 6) + 1;
+            this.dado = numeroAleatorio
 
         },
-        jogada: function () {
+        jogada: function() {
             let posx
             let posy
             do {
@@ -31,40 +31,40 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
             return [posx, posy]
         },
 
-        calcular_pontos_coluna: function () {
+        calcular_pontos_coluna: function() {
             let somaColuna = [0, 0, 0]
             let tabuleiro = this.tabuleiro
             for (let i = 0; i < 3; i++) {
-                let numRep = 0
-                let repetidos = 1
+                let numeroRepetido = 0
+                let repeticoes = 1
                 for (let j = 0; j < 3; j++) {
                     if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[0][i] != 0 && tabuleiro[1][i] != 0) {
-                        repetidos++
-                        numRep = tabuleiro[0][i]
+                        repeticoes++
+                        numeroRepetido = tabuleiro[0][i]
                     }
                     if (tabuleiro[0][i] == tabuleiro[2][i] && tabuleiro[0][i] != 0 && tabuleiro[2][i] != 0) {
-                        repetidos++
-                        numRep = tabuleiro[0][i]
+                        repeticoes++
+                        numeroRepetido = tabuleiro[0][i]
                     }
-                    if (tabuleiro[1][i] == tabuleiro[2][i] && repetidos < 3 && tabuleiro[1][i] != 0 && tabuleiro[2][i] != 0) {
-                        repetidos++
-                        numRep = tabuleiro[1][i]
+                    if (tabuleiro[1][i] == tabuleiro[2][i] && repeticoes < 3 && tabuleiro[1][i] != 0 && tabuleiro[2][i] != 0) {
+                        repeticoes++
+                        numeroRepetido = tabuleiro[1][i]
                     }
 
-                    if (tabuleiro[j][i] == numRep && tabuleiro[j][i] != 0) {
-                        somaColuna[i] += (numRep * repetidos)
+                    if (tabuleiro[j][i] == numeroRepetido && tabuleiro[j][i] != 0) {
+                        somaColuna[i] += (numeroRepetido * repeticoes)
                     } else {
                         somaColuna[i] += tabuleiro[j][i];
                     }
-                    numRep = 0
-                    repetidos = 1
+                    numeroRepetido = 0
+                    repeticoes = 1
                 }
             }
             for (let i = 0; i < 3; i++) {
                 this.pontos[i] = somaColuna[i];
             }
         },
-        calcular_total_pontos: function () {
+        calcularPontoTotal: function() {
             const pontos = this.pontos
 
             const tamanho = pontos.length
@@ -73,8 +73,6 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
             for (let i = 0; i < tamanho; i++) {
                 this.ponto_total += pontos[i]
             }
-
         }
     }
 }
-

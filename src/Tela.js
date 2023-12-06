@@ -1,4 +1,3 @@
-
 function getElementos(tabuleiro, elemento) {
     const rows = tabuleiro.children
     let elementos = []
@@ -13,6 +12,7 @@ function getElementos(tabuleiro, elemento) {
     }
     return elementos
 }
+
 function setElementos(elementos, dados, ignora_zeros) {
     const tamanho = dados.length
     for (let i = 0; i < tamanho; i++) {
@@ -22,12 +22,11 @@ function setElementos(elementos, dados, ignora_zeros) {
             elementos[i].textContent = dados[i];
         }
     }
-    if(tamanho==0){
+    if (tamanho == 0) {
         console.log("s")
         elemento.textContent = dado[i];
     }
 }
-
 
 function atualizaTabuleiro(jogador) {
     const tabuleiroCtn = jogador.tabuleiro_div
@@ -47,18 +46,19 @@ function atualizaTabuleiro(jogador) {
     setElementos(pontos_ctn, matrizPontos, false)
     setElementos(casas_ctn, casas_sanitizada, true)
 }
-function atualizaAsides(jogador){
-    const pontoTotal = [jogador.ponto_total]
-    const pontoTotalCtn= [jogador.div_pontos]
-    const dado= [jogador.dado]
-    const dadoCtn= [jogador.dado_div]
 
-    setElementos(dadoCtn,dado,false)
-    setElementos(pontoTotalCtn, pontoTotal,false)
+function atualizaAsides(jogador) {
+    const pontoTotal = [jogador.ponto_total]
+    const pontoTotalCtn = [jogador.div_pontos]
+    const dado = [jogador.dado]
+    const dadoCtn = [jogador.dado_div]
+
+    setElementos(dadoCtn, dado, false)
+    setElementos(pontoTotalCtn, pontoTotal, false)
 }
 
 function atualizarTela(player) {
-    atualizaTabuleiro( player)
+    atualizaTabuleiro(player)
     atualizaAsides(player)
 }
-export { atualizarTela }
+export {atualizarTela}
