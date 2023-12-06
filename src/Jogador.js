@@ -1,5 +1,5 @@
-function Jogador(div_tabuleiro, div_dado, div_pontos) {
-    let jogador = {
+export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
+    return {
         pontos: [0, 0, 0],
         dado: 0,
         ponto_total: 0,
@@ -76,7 +76,5 @@ function Jogador(div_tabuleiro, div_dado, div_pontos) {
 
         }
     }
-    return jogador;
 }
 
-export { Jogador }

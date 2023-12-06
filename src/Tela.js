@@ -17,9 +17,9 @@ function set_elementos_tabuleiro(elementos, dados, ignora_zeros) {
 
     for (let i = 0; i < elementos.length; i++) {
         if (ignora_zeros == true && dados[i] == 0) {
-            elementos[i].innerText = "";
+            elementos[i].textContent = "";
         } else {
-            elementos[i].innerText = dados[i];
+            elementos[i].textContent = dados[i];
         }
     }
 }
@@ -43,7 +43,7 @@ function atualiza_tabuleiro(elemento, casas, pontos) {
 
 function atualiza_dado(num, dado_div) {
     const dado = dado_div
-    dado.innerText = num
+    dado.textContent = num
 }
 
 function atualizar_tela(player) {

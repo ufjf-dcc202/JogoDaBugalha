@@ -1,20 +1,21 @@
-import { Jogador } from './Jogador.js'
-import { Jogo } from './Jogo.js'
+import { criaJogador } from './Jogador.js'
+import { criaJogo } from './Jogo.js'
 
-let divTabuleiroPlayer = document.getElementById('tab_player')
-let divDadoPlayer = document.getElementById('dado_player')
+let divTabuleiroPlayer = document.querySelector('#tab_player')
+let divDadoPlayer = document.querySelector('#dado_player')
 let divPontoPlayer = document.querySelector('#pontos_player')
-let player = Jogador(divTabuleiroPlayer, divDadoPlayer, divPontoPlayer)
+let player = criaJogador(divTabuleiroPlayer, divDadoPlayer, divPontoPlayer)
 
-let divTabuleiroBot = document.getElementById('tab_bot')
-let divDadoBot = document.getElementById('dado_bot')
+let divTabuleiroBot = document.querySelector('#tab_bot')
+let divDadoBot = document.querySelector('#dado_bot')
 let divPontoBot = document.querySelector('#pontos_bot')
-let bot = Jogador(divTabuleiroBot, divDadoBot, divPontoBot)
+let bot = criaJogador(divTabuleiroBot, divDadoBot, divPontoBot)
 
 
-let jogo = Jogo(player,bot)
+let jogo = criaJogo(player,bot)
 jogo.start()
 
+//percorre o codigo setando clique
 function setar_click() {
     let tabuleiro = document.getElementById('tab_player')
     let rows = tabuleiro.children
@@ -25,7 +26,7 @@ function setar_click() {
             
             let elemento = collum[y];
             if (collum[y].tagName == 'TD') {
-                let jogo = Jogo(player, bot)
+                let jogo = criaJogo(player, bot)
                 elemento.addEventListener("click", (e) => {
                     jogo.pega_posições(e)
                 });

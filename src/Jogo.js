@@ -1,6 +1,6 @@
 import {atualizar_tela} from "./Tela.js"
 
-export function Jogo(player1, player2) {
+export function criaJogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
