@@ -61,7 +61,7 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
                 }
             }
             for (let i = 0; i < 3; i++) {
-                jogador.pontos[i] = somaColuna[i];
+                this.pontos[i] = somaColuna[i];
             }
         },
         calcular_total_pontos: function () {
