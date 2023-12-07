@@ -48,7 +48,7 @@ function atualizaTabuleiro(jogador) {
 }
 
 function atualizaAsides(jogador) {
-    const pontoTotal = [jogador.ponto_total]
+    const pontoTotal = [jogador.pontoTotal]
     const pontoTotalCtn = [jogador.div_pontos]
     const dado = [jogador.dado]
     const dadoCtn = [jogador.dado_div]
@@ -57,8 +57,23 @@ function atualizaAsides(jogador) {
     setElementos(pontoTotalCtn, pontoTotal, false)
 }
 
+function atualizaResultado(jogador) {
+    const resultadoCtn = document.querySelector('.resultados')
+    const textoResultado = document.querySelector('#resultado')
+    const ganhou = jogador.status
+
+    if(ganhou == "ganhou"){
+        resultadoCtn.style.display = 'flex'
+        textoResultado.innerHTML = "Você ganhou!"
+    }else if(ganhou == "perdeu"){
+        resultadoCtn.style.display = 'flex'
+        textoResultado.innerHTML = "Você perdeu!"
+    }else{}
+}
+
 function atualizarTela(player) {
     atualizaTabuleiro(player)
     atualizaAsides(player)
+    atualizaResultado(player)
 }
 export {atualizarTela}

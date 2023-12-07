@@ -66,15 +66,12 @@ export function criaJogo(player1, player2) {
             let fim_de_jogo = [checa_tabuleiro(tab_player), checa_tabuleiro(tab_player2)]
 
             if (fim_de_jogo[0] || fim_de_jogo[1]) {
-                for (let ponto = 0; ponto < 3; ponto++) {
-                    pontos[0] += pontos_player1[ponto]
-                    pontos[1] += pontos_player2[ponto]
-                    console.log(pontos)
-                }
-                if (pontos[0] > pontos[1]) {
-                    window.alert("você ganhou")
-                } else {
-                    window.alert("você perdeu")
+                if (player1.pontoTotal > player2.pontoTotal) {
+                    player1.status = 'ganhou'
+                } else if(player1.pontoTotal < player2.pontoTotal){
+                    player1.status = 'perdeu'
+                }else{
+                    player1.status ='empate'
                 }
             }
         },
@@ -87,6 +84,10 @@ export function criaJogo(player1, player2) {
             this.player.posicionar_dado(x, y)
             this.deleta_coluna(y, this.bot)
             this.player.jogar_dado()
+
+            if (this.checa_vitoria() == true) {
+                return;
+            }
 
             let bot_pos = this.bot.jogada()
             this.bot.jogar_dado()

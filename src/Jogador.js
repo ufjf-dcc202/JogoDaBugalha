@@ -2,16 +2,17 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
     return {
         pontos: [0, 0, 0],
         dado: 0,
-        ponto_total: 0,
+        pontoTotal: 0,
         tabuleiro_div: div_tabuleiro,
         dado_div: div_dado,
         div_pontos: div_pontos,
         tabuleiro: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+        status: '',
 
         posicionar_dado: function(x, y) {
             let valor = this.dado
             this.tabuleiro[x][y] = valor;
-            this.calcular_pontos_coluna()
+            this.calcularColunas()
             this.calcularPontoTotal()
         },
         jogar_dado: function() {
@@ -31,7 +32,7 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
             return [posx, posy]
         },
 
-        calcular_pontos_coluna: function() {
+        calcularColunas: function() {
             let somaColuna = [0, 0, 0]
             let tabuleiro = this.tabuleiro
             for (let i = 0; i < 3; i++) {
@@ -68,10 +69,10 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
             const pontos = this.pontos
 
             const tamanho = pontos.length
-            this.ponto_total = 0
+            this.pontoTotal = 0
 
             for (let i = 0; i < tamanho; i++) {
-                this.ponto_total += pontos[i]
+                this.pontoTotal += pontos[i]
             }
         }
     }
