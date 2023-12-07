@@ -1,26 +1,26 @@
 export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
     return {
         pontos: [0, 0, 0],
-        dado: 0,
         pontoTotal: 0,
+        dado: 0,
         tabuleiro_div: div_tabuleiro,
         dado_div: div_dado,
         div_pontos: div_pontos,
         tabuleiro: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
         status: '',
 
-        posicionar_dado: function(x, y) {
+        posicionarDado: function (x, y) {
             let valor = this.dado
             this.tabuleiro[x][y] = valor;
             this.calcularColunas()
             this.calcularPontoTotal()
         },
-        jogar_dado: function() {
+        jogar_dado: function () {
             let numeroAleatorio = Math.floor(Math.random() * 6) + 1;
             this.dado = numeroAleatorio
 
         },
-        jogada: function() {
+        jogada: function () {
             let posx
             let posy
             do {
@@ -28,11 +28,11 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
                 posy = (Math.floor(Math.random() * 3) + 1) - 1;
 
             } while (this.tabuleiro[posx][posy] != "");
-            this.posicionar_dado(posx, posy)
+            this.posicionarDado(posx, posy)
             return [posx, posy]
         },
 
-        calcularColunas: function() {
+        calcularColunas: function () {
             let somaColuna = [0, 0, 0]
             let tabuleiro = this.tabuleiro
             for (let i = 0; i < 3; i++) {
@@ -65,7 +65,8 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
                 this.pontos[i] = somaColuna[i];
             }
         },
-        calcularPontoTotal: function() {
+
+        calcularPontoTotal: function () {
             const pontos = this.pontos
 
             const tamanho = pontos.length

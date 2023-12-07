@@ -1,4 +1,3 @@
-
 .tabuleiro{
     width:400px;
     margin: 40px;
@@ -6,27 +5,23 @@
     border: 2px solid black;
     padding: 0px;  
     border-radius: 15px;
-
-
 }
+
 .tabuleiro td{
     width: 40px;
     text-align: center;
     height: 40px;
     border: 2px solid black;
     border-radius: 5px;
-
 }
+
 .tabuleiro td:hover{
     background-color: gray;
     color: white;
 }
-.tabuleiro tr{
-}
+
 .tabuleiro th{
     width: 40px;
     text-align: center;
     height: 40px;
-    
-
 }

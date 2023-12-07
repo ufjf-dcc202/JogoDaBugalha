@@ -61,14 +61,20 @@ function atualizaResultado(jogador) {
     const resultadoCtn = document.querySelector('.resultados')
     const textoResultado = document.querySelector('#resultado')
     const ganhou = jogador.status
+    const estilo = resultadoCtn.style
 
-    if(ganhou == "ganhou"){
-        resultadoCtn.style.display = 'flex'
-        textoResultado.innerHTML = "Você ganhou!"
-    }else if(ganhou == "perdeu"){
-        resultadoCtn.style.display = 'flex'
-        textoResultado.innerHTML = "Você perdeu!"
-    }else{}
+    if (ganhou == "ganhou") {
+        estilo.display = 'flex'
+        estilo.background = 'green'
+        textoResultado.innerHTML = "PARABENS - Você ganhou!"
+    } else if (ganhou == "perdeu") {
+        estilo.display = 'flex'
+        estilo.background = 'red' 
+        textoResultado.innerHTML = "GAME OVER - Você perdeu!"
+    } else if (ganhou == "empate") {
+        estilo.display = 'flex'
+        textoResultado.innerHTML = "EMPATE!"
+    }
 }
 
 function atualizarTela(player) {
@@ -76,4 +82,4 @@ function atualizarTela(player) {
     atualizaAsides(player)
     atualizaResultado(player)
 }
-export {atualizarTela}
+export { atualizarTela }

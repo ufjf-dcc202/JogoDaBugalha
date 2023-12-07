@@ -1,16 +1,16 @@
-import {atualizarTela} from "./Tela.js"
+import { atualizarTela } from "./Tela.js"
 
 export function criaJogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
-        start: function() {
+        start: function () {
             this.player.jogar_dado()
             this.bot.jogar_dado()
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
-        deleta_coluna: function(coluna_jogada, who_delete) {
+        deleta_coluna: function (coluna_jogada, who_delete) {
 
             const tabuleiro = this.player.tabuleiro
             const tabuleiro2 = this.bot.tabuleiro
@@ -19,7 +19,6 @@ export function criaJogo(player1, player2) {
             function pegarNumRepetido() {
                 let repetido = 0
                 for (let x = 0; x < tamanho; x++) {
-
                     for (let y = 0; y < tamanho; y++) {
                         const casa1 = tabuleiro[x][coluna_jogada];
                         const casa2 = tabuleiro2[y][coluna_jogada];
@@ -42,12 +41,9 @@ export function criaJogo(player1, player2) {
             let repetido = pegarNumRepetido()
             apagar_repetidos(repetido)
         },
-        checa_vitoria: function() {
+        checa_vitoria: function () {
             const tab_player = this.player.tabuleiro
             const tab_player2 = this.bot.tabuleiro
-            const pontos_player1 = this.player.pontos
-            const pontos_player2 = this.bot.pontos
-            const pontos = [0, 0]
 
             function checa_tabuleiro(tabuleiro) {
                 const tamanho = tabuleiro.length
@@ -68,34 +64,35 @@ export function criaJogo(player1, player2) {
             if (fim_de_jogo[0] || fim_de_jogo[1]) {
                 if (player1.pontoTotal > player2.pontoTotal) {
                     player1.status = 'ganhou'
-                } else if(player1.pontoTotal < player2.pontoTotal){
+                } else if (player1.pontoTotal < player2.pontoTotal) {
                     player1.status = 'perdeu'
-                }else{
-                    player1.status ='empate'
+                } else {
+                    player1.status = 'empate'
                 }
             }
         },
 
-        ciclo_de_jogo: function(x, y) {
+        ciclo_de_jogo: function (x, y) {
             if (this.checa_vitoria() == true) {
                 return;
+            } else {
+                this.player.posicionarDado(x, y)
+                this.deleta_coluna(y, this.bot)
+                this.player.jogar_dado()
             }
-
-            this.player.posicionar_dado(x, y)
-            this.deleta_coluna(y, this.bot)
-            this.player.jogar_dado()
 
             if (this.checa_vitoria() == true) {
                 return;
+            } else {
+                let bot_pos = this.bot.jogada()
+                this.bot.jogar_dado()
+                this.deleta_coluna(bot_pos[1], this.player)
+                atualizarTela(this.player)
+                atualizarTela(this.bot)
             }
-
-            let bot_pos = this.bot.jogada()
-            this.bot.jogar_dado()
-            this.deleta_coluna(bot_pos[1], this.player)
-            atualizarTela(this.player)
-            atualizarTela(this.bot)
         },
-        pega_posições: function(e) {
+
+        pega_posições: function (e) {
             let tabuleiro = document.getElementById('tab_player')
             let rows = tabuleiro.children
             for (let x = 0; x < 3; x++) {
@@ -104,7 +101,7 @@ export function criaJogo(player1, player2) {
                     let elemento = collum[y];
                     let posição = this.player.tabuleiro[x][y]
                     if (e.target == elemento && posição == "") {
-                        this.player.posicionar_dado(x, y)
+                        this.player.posicionarDado(x, y)
 
                         this.ciclo_de_jogo(x, y)
                     }
