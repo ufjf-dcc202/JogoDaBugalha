@@ -60,6 +60,8 @@ function atualizaAsides(jogador) {
 function mostrarResultado(jogador1, jogador2) {
     const resultadoCtn = document.querySelector('.resultados')
     resultadoCtn.style.visibility="visible"
+    resultadoCtn.style.backgroundColor="black"
+
     const textoResultado = document.querySelector('.resultado')
     const ganhou = jogador1.status
     const diferençaPontos = `${jogador1.pontoTotal} - ${jogador2.pontoTotal} `

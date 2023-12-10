@@ -19,13 +19,13 @@ function setar_click() {
     let rows = tabuleiro.children
     for (let x = 0; x < rows.length; x++) {
         let collum = rows[x].children
-
         for (let y = 0; y < collum.length; y++) {
-
             let elemento = collum[y];
             if (collum[y].tagName == 'TD') {
+                console.log(elemento)
+
                 elemento.addEventListener("click", (e) => {
-                    jogo.pega_posições(e)
+                    jogo.pegarPosicoes(e)
                 }
                 );
             }

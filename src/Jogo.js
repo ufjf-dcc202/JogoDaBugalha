@@ -13,12 +13,10 @@ export function criaJogo(player1, player2) {
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
-        deleta_coluna: function (coluna_jogada, who_delete) {
-
+        deletaColuna: function (coluna_jogada, who_delete) {
             const tabuleiro = this.player.tabuleiro
             const tabuleiro2 = this.bot.tabuleiro
             const tamanho = tabuleiro.length
-
             function pegarNumRepetido() {
                 let repetido = 0
                 for (let x = 0; x < tamanho; x++) {
@@ -32,7 +30,7 @@ export function criaJogo(player1, player2) {
                 }
                 return repetido
             }
-            function apagar_repetidos(repetido) {
+            function apagarRepetidos(repetido) {
                 for (let y = 0; y < tamanho; y++) {
                     const casa = who_delete.tabuleiro[y][coluna_jogada];
 
@@ -42,9 +40,9 @@ export function criaJogo(player1, player2) {
                 }
             }
             let repetido = pegarNumRepetido()
-            apagar_repetidos(repetido)
+            apagarRepetidos(repetido)
         },
-        checa_vitoria: function () {
+        checaVitoria: function () {
             const tab_player = this.player.tabuleiro
             const tab_player2 = this.bot.tabuleiro
 
@@ -79,45 +77,62 @@ export function criaJogo(player1, player2) {
 
             }
 
-           // console.log(this.fimJogo)
 
             return acabou;
         },
 
         ciclo_de_jogo: function (x, y) {
-            console.log(this.fimJogo)
-         //   this.checa_vitoria()
-
-            if(this.fimJogo != true){
+            if(this.fimJogo == true){return}
                 
-                this.player.posicionarDado(x, y)
-                this.deleta_coluna(y, this.bot)
-                this.player.jogar_dado()
-                let bot_pos = this.bot.jogada()
-                this.bot.jogar_dado()
-                this.deleta_coluna(bot_pos[1], this.player)
-                atualizarTela(this.player)
-                atualizarTela(this.bot) 
-                this.checa_vitoria()
+            this.player.posicionarDado(x, y)
+            this.deletaColuna(y, this.bot)
+            this.player.jogar_dado()
+            let bot_pos = this.bot.jogada()
+            this.bot.jogar_dado()
+            this.deletaColuna(bot_pos[1], this.player)
+            atualizarTela(this.player)
+            atualizarTela(this.bot) 
+            this.checaVitoria()
 
-            }else{
-
-            }
+         
 
             
             
         },
 
-        pega_posições: function (e) {
-            let tabuleiro = document.getElementById('tab_player')
-            let rows = tabuleiro.children
-            for (let x = 0; x < 3; x++) {
-                let collum = rows[x].children
-                for (let y = 0; y < 3; y++) {
-                    let elemento = collum[y];
-                    let posição = this.player.tabuleiro[x][y]
-                    if (e.target == elemento && posição == "") {
-                        this.ciclo_de_jogo(x, y)
+        pegarPosicoes: function (e) {
+            const tabuleiro = document.getElementById('tab_player')
+            const rows = tabuleiro.children
+            const tamanhox = rows.length
+
+            let posx =0
+            let posy = -1
+            for (let x = 0; x < tamanhox; x++) {
+                const collum = rows[x].children
+                const tamanhoy = collum.length
+                for (let y = 0; y < tamanhoy; y++) {
+                    const tipo = collum[y].tagName 
+
+                    if(tipo =="TD" && posy+1<=3){
+                        posy++
+                    }
+                    if(tipo =="TD" && posy+1>3){
+                        posy=0
+                        posx++
+                    }
+
+                    const elemento = collum[y];
+
+                  
+
+                    if (e.target == elemento  ) {
+//                        console.log(this.player.tabuleiro,[posx,posy])
+
+                        const posição = this.player.tabuleiro[posx][posy]
+                        console.log(this.player.tabuleiro,[posx,posy, posição])
+                        if (posição==0) {
+                            this.ciclo_de_jogo(posx, posy)
+                        }
                     }
                 }
             }
