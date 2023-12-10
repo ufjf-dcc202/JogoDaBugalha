@@ -1,11 +1,11 @@
-function getElementos(tabuleiro, elemento) {
-    const rows = tabuleiro.children
+function getElementos(container, tag) {
+    const rows = container.children
     let elementos = []
     for (let x = 0; x < 4; x++) {
         let collum = rows[x].children
         for (let i = 0; i < collum.length; i++) {
             const casa = collum[i];
-            if (casa.tagName == elemento) {
+            if (casa.tagName == tag) {
                 elementos.push(casa)
             }
         }
@@ -13,14 +13,14 @@ function getElementos(tabuleiro, elemento) {
     return elementos
 }
 
-function setElementos(elementos, dados, ignora_zeros) {
-    const tamanho = dados.length
+function setElementos(elementos, inputs, ignora_zeros) {
+    const tamanho = inputs.length
     console.log(elementos)
     for (let i = 0; i < tamanho; i++) {
-        if (ignora_zeros == true && dados[i] == 0) {
+        if (ignora_zeros == true && inputs[i] == 0) {
             elementos[i].textContent = "";
         } else {
-            elementos[i].textContent = dados[i];
+            elementos[i].textContent = inputs[i];
         }
     }
     if (tamanho == 0) {

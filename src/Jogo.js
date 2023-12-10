@@ -13,7 +13,7 @@ export function criaJogo(player1, player2) {
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
-        deletaColuna: function (coluna_jogada, who_delete) {
+        deletaColuna: function (colunaJogada, quemDeletar) {
             const tabuleiro = this.player.tabuleiro
             const tabuleiro2 = this.bot.tabuleiro
             const tamanho = tabuleiro.length
@@ -21,8 +21,8 @@ export function criaJogo(player1, player2) {
                 let repetido = 0
                 for (let x = 0; x < tamanho; x++) {
                     for (let y = 0; y < tamanho; y++) {
-                        const casa1 = tabuleiro[x][coluna_jogada];
-                        const casa2 = tabuleiro2[y][coluna_jogada];
+                        const casa1 = tabuleiro[x][colunaJogada];
+                        const casa2 = tabuleiro2[y][colunaJogada];
                         if (casa1 == casa2 && casa1 != 0 && casa2 != 0) {
                             repetido = casa1
                         }
@@ -32,10 +32,10 @@ export function criaJogo(player1, player2) {
             }
             function apagarRepetidos(repetido) {
                 for (let y = 0; y < tamanho; y++) {
-                    const casa = who_delete.tabuleiro[y][coluna_jogada];
+                    const casa = quemDeletar.tabuleiro[y][colunaJogada];
 
                     if (casa == repetido) {
-                        who_delete.tabuleiro[y][coluna_jogada] = 0
+                        quemDeletar.tabuleiro[y][colunaJogada] = 0
                     }
                 }
             }
@@ -43,8 +43,8 @@ export function criaJogo(player1, player2) {
             apagarRepetidos(repetido)
         },
         checaVitoria: function () {
-            const tab_player = this.player.tabuleiro
-            const tab_player2 = this.bot.tabuleiro
+            const tabPlayer = this.player.tabuleiro
+            const tabBot = this.bot.tabuleiro
 
             function checa_tabuleiro(tabuleiro) {
                 const tamanho = tabuleiro.length
@@ -59,13 +59,10 @@ export function criaJogo(player1, player2) {
                 }
                 return fim_de_jogo;
             }
-
-            const resultadoTabuleiros = [checa_tabuleiro(tab_player), checa_tabuleiro(tab_player2)]
+            const resultadoTabuleiros = [checa_tabuleiro(tabPlayer), checa_tabuleiro(tabBot)]
             const acabou = resultadoTabuleiros[0] || resultadoTabuleiros[1]
-            
             if (acabou == true) {
                 this.fimJogo = true
-
                 if (player1.pontoTotal > player2.pontoTotal) {
                     player1.status = 'ganhou'
                 } else if (player1.pontoTotal < player2.pontoTotal) {
@@ -76,35 +73,26 @@ export function criaJogo(player1, player2) {
                 mostrarResultado(this.player,this.bot)
 
             }
-
-
             return acabou;
         },
-
-        ciclo_de_jogo: function (x, y) {
-            if(this.fimJogo == true){return}
-                
+        cicloJogo: function (x, y) {
+            if(this.fimJogo == true){return} 
             this.player.posicionarDado(x, y)
             this.deletaColuna(y, this.bot)
             this.player.rolarDado()
-            let bot_pos = this.bot.fazerJogada()
+
+            let botPos = this.bot.fazerJogada()
             this.bot.rolarDado()
-            this.deletaColuna(bot_pos[1], this.player)
+            this.deletaColuna(botPos[1], this.player)
+            
             atualizarTela(this.player)
             atualizarTela(this.bot) 
             this.checaVitoria()
-
-         
-
-            
-            
         },
-
         pegarPosicoes: function (e) {
             const tabuleiro = document.getElementById('tab_player')
             const rows = tabuleiro.children
             const tamanhox = rows.length
-
             let posx =0
             let posy = -1
             for (let x = 0; x < tamanhox; x++) {
@@ -112,7 +100,7 @@ export function criaJogo(player1, player2) {
                 const tamanhoy = collum.length
                 for (let y = 0; y < tamanhoy; y++) {
                     const tipo = collum[y].tagName 
-
+                    const elemento = collum[y];
                     if(tipo =="TD" && posy+1<=3){
                         posy++
                     }
@@ -120,18 +108,11 @@ export function criaJogo(player1, player2) {
                         posy=0
                         posx++
                     }
-
-                    const elemento = collum[y];
-
-                  
-
-                    if (e.target == elemento  ) {
-//                        console.log(this.player.tabuleiro,[posx,posy])
-
+                    if (e.target == elemento) {
                         const posição = this.player.tabuleiro[posx][posy]
                         console.log(this.player.tabuleiro,[posx,posy, posição])
                         if (posição==0) {
-                            this.ciclo_de_jogo(posx, posy)
+                            this.cicloJogo(posx, posy)
                         }
                     }
                 }
