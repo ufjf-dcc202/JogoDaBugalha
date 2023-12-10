@@ -4,9 +4,12 @@ export function criaJogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
+        fimJogo:false,
         start: function () {
             this.player.jogar_dado()
             this.bot.jogar_dado()
+            console.log("s")
+            this.fimJogo = false
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
@@ -60,8 +63,11 @@ export function criaJogo(player1, player2) {
             }
 
             const resultadoTabuleiros = [checa_tabuleiro(tab_player), checa_tabuleiro(tab_player2)]
-            const fimJogo = resultadoTabuleiros[0] || resultadoTabuleiros[1]
-            if (fimJogo == true) {
+            const acabou = resultadoTabuleiros[0] || resultadoTabuleiros[1]
+            
+            if (acabou == true) {
+                this.fimJogo = true
+
                 if (player1.pontoTotal > player2.pontoTotal) {
                     player1.status = 'ganhou'
                 } else if (player1.pontoTotal < player2.pontoTotal) {
@@ -69,29 +75,37 @@ export function criaJogo(player1, player2) {
                 } else {
                     player1.status = 'empate'
                 }
+                mostrarResultado(this.player,this.bot)
+
             }
 
-            return fimJogo;
+           // console.log(this.fimJogo)
+
+            return acabou;
         },
 
         ciclo_de_jogo: function (x, y) {
-            
-            if(this.checa_vitoria() == true){
+            console.log(this.fimJogo)
+         //   this.checa_vitoria()
 
+            if(this.fimJogo != true){
+                
+                this.player.posicionarDado(x, y)
+                this.deleta_coluna(y, this.bot)
+                this.player.jogar_dado()
+                let bot_pos = this.bot.jogada()
+                this.bot.jogar_dado()
+                this.deleta_coluna(bot_pos[1], this.player)
                 atualizarTela(this.player)
-                atualizarTela(this.bot)
-                mostrarResultado(this.player,this.bot)
-                return;
+                atualizarTela(this.bot) 
+                this.checa_vitoria()
+
+            }else{
+
             }
-            this.player.posicionarDado(x, y)
-            this.deleta_coluna(y, this.bot)
-            this.player.jogar_dado()
-            let bot_pos = this.bot.jogada()
-            this.bot.jogar_dado()
-            this.deleta_coluna(bot_pos[1], this.player)
+
             
-            atualizarTela(this.player)
-            atualizarTela(this.bot)
+            
         },
 
         pega_posições: function (e) {
@@ -103,8 +117,6 @@ export function criaJogo(player1, player2) {
                     let elemento = collum[y];
                     let posição = this.player.tabuleiro[x][y]
                     if (e.target == elemento && posição == "") {
-                        this.player.posicionarDado(x, y)
-
                         this.ciclo_de_jogo(x, y)
                     }
                 }

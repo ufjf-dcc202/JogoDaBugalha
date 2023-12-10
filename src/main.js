@@ -24,7 +24,6 @@ function setar_click() {
 
             let elemento = collum[y];
             if (collum[y].tagName == 'TD') {
-                let jogo = criaJogo(player, bot)
                 elemento.addEventListener("click", (e) => {
                     jogo.pega_posições(e)
                 }
