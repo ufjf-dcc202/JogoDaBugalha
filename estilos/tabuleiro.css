@@ -1,7 +1,8 @@
 .tabuleiro{
-    width:400px;
     margin: 40px;
-    height: 400px;
+    height: 100%;
+    width:70%;
+
     border: 2px solid black;
     padding: 0px;  
     border-radius: 15px;
