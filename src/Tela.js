@@ -15,6 +15,7 @@ function getElementos(tabuleiro, elemento) {
 
 function setElementos(elementos, dados, ignora_zeros) {
     const tamanho = dados.length
+    console.log(elementos)
     for (let i = 0; i < tamanho; i++) {
         if (ignora_zeros == true && dados[i] == 0) {
             elementos[i].textContent = "";
@@ -29,7 +30,7 @@ function setElementos(elementos, dados, ignora_zeros) {
 }
 
 function atualizaTabuleiro(jogador) {
-    const tabuleiroCtn = jogador.tabuleiro_div
+    const tabuleiroCtn = jogador.tabuleiroCtn
     const matrizTabuleiro = jogador.tabuleiro
     const matrizPontos = jogador.pontos
 
@@ -49,9 +50,9 @@ function atualizaTabuleiro(jogador) {
 
 function atualizaAsides(jogador) {
     const pontoTotal = [jogador.pontoTotal]
-    const pontoTotalCtn = [jogador.div_pontos]
+    const pontoTotalCtn = [jogador.pontoCtn]
     const dado = [jogador.dado]
-    const dadoCtn = [jogador.dado_div]
+    const dadoCtn = [jogador.dadoCtn]
 
     setElementos(dadoCtn, dado, false)
     setElementos(pontoTotalCtn, pontoTotal, false)

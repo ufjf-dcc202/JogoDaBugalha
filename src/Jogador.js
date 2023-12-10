@@ -1,32 +1,33 @@
 export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
     return {
+        tabuleiroCtn: div_tabuleiro,
+        dadoCtn: div_dado,
+        pontoCtn: div_pontos,
+        tabuleiro: [[0, 0, 0], 
+                    [0, 0, 0],
+                    [0, 0, 0]],
         pontos: [0, 0, 0],
         pontoTotal: 0,
         dado: 0,
-        tabuleiro_div: div_tabuleiro,
-        dado_div: div_dado,
-        div_pontos: div_pontos,
-        tabuleiro: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
         status: '',
-
+        
         posicionarDado: function (x, y) {
             let valor = this.dado
             this.tabuleiro[x][y] = valor;
             this.calcularColunas()
             this.calcularPontoTotal()
         },
-        jogar_dado: function () {
+        rolarDado: function () {
             let numeroAleatorio = Math.floor(Math.random() * 6) + 1;
             this.dado = numeroAleatorio
 
         },
-        jogada: function () {
+        fazerJogada: function () {
             let posx
             let posy
             do {
                 posx = (Math.floor(Math.random() * 3) + 1) - 1;
                 posy = (Math.floor(Math.random() * 3) + 1) - 1;
-
             } while (this.tabuleiro[posx][posy] != "");
             this.posicionarDado(posx, posy)
             return [posx, posy]
@@ -51,7 +52,6 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
                         repeticoes++
                         numeroRepetido = tabuleiro[1][i]
                     }
-
                     if (tabuleiro[j][i] == numeroRepetido && tabuleiro[j][i] != 0) {
                         somaColuna[i] += (numeroRepetido * repeticoes)
                     } else {
@@ -65,13 +65,10 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
                 this.pontos[i] = somaColuna[i];
             }
         },
-
         calcularPontoTotal: function () {
             const pontos = this.pontos
-
             const tamanho = pontos.length
             this.pontoTotal = 0
-
             for (let i = 0; i < tamanho; i++) {
                 this.pontoTotal += pontos[i]
             }

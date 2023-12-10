@@ -6,8 +6,8 @@ export function criaJogo(player1, player2) {
         bot: player2,
         fimJogo:false,
         start: function () {
-            this.player.jogar_dado()
-            this.bot.jogar_dado()
+            this.player.rolarDado()
+            this.bot.rolarDado()
             console.log("s")
             this.fimJogo = false
             atualizarTela(this.player)
@@ -86,9 +86,9 @@ export function criaJogo(player1, player2) {
                 
             this.player.posicionarDado(x, y)
             this.deletaColuna(y, this.bot)
-            this.player.jogar_dado()
-            let bot_pos = this.bot.jogada()
-            this.bot.jogar_dado()
+            this.player.rolarDado()
+            let bot_pos = this.bot.fazerJogada()
+            this.bot.rolarDado()
             this.deletaColuna(bot_pos[1], this.player)
             atualizarTela(this.player)
             atualizarTela(this.bot) 
