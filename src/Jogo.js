@@ -1,4 +1,4 @@
-import { atualizarTela } from "./Tela.js"
+import { atualizarTela, mostrarResultado } from "./Tela.js"
 
 export function criaJogo(player1, player2) {
     return {
@@ -59,9 +59,9 @@ export function criaJogo(player1, player2) {
                 return fim_de_jogo;
             }
 
-            let fim_de_jogo = [checa_tabuleiro(tab_player), checa_tabuleiro(tab_player2)]
-
-            if (fim_de_jogo[0] || fim_de_jogo[1]) {
+            const resultadoTabuleiros = [checa_tabuleiro(tab_player), checa_tabuleiro(tab_player2)]
+            const fimJogo = resultadoTabuleiros[0] || resultadoTabuleiros[1]
+            if (fimJogo == true) {
                 if (player1.pontoTotal > player2.pontoTotal) {
                     player1.status = 'ganhou'
                 } else if (player1.pontoTotal < player2.pontoTotal) {
@@ -70,26 +70,28 @@ export function criaJogo(player1, player2) {
                     player1.status = 'empate'
                 }
             }
+
+            return fimJogo;
         },
 
         ciclo_de_jogo: function (x, y) {
-            if (this.checa_vitoria() == true) {
-                return;
-            } else {
-                this.player.posicionarDado(x, y)
-                this.deleta_coluna(y, this.bot)
-                this.player.jogar_dado()
-            }
+            
+            if(this.checa_vitoria() == true){
 
-            if (this.checa_vitoria() == true) {
-                return;
-            } else {
-                let bot_pos = this.bot.jogada()
-                this.bot.jogar_dado()
-                this.deleta_coluna(bot_pos[1], this.player)
                 atualizarTela(this.player)
                 atualizarTela(this.bot)
+                mostrarResultado(this.player,this.bot)
+                return;
             }
+            this.player.posicionarDado(x, y)
+            this.deleta_coluna(y, this.bot)
+            this.player.jogar_dado()
+            let bot_pos = this.bot.jogada()
+            this.bot.jogar_dado()
+            this.deleta_coluna(bot_pos[1], this.player)
+            
+            atualizarTela(this.player)
+            atualizarTela(this.bot)
         },
 
         pega_posições: function (e) {

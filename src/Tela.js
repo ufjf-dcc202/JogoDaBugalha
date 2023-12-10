@@ -57,29 +57,27 @@ function atualizaAsides(jogador) {
     setElementos(pontoTotalCtn, pontoTotal, false)
 }
 
-function atualizaResultado(jogador) {
+function mostrarResultado(jogador1, jogador2) {
     const resultadoCtn = document.querySelector('.resultados')
     const textoResultado = document.querySelector('#resultado')
-    const ganhou = jogador.status
+    const ganhou = jogador1.status
     const estilo = resultadoCtn.style
+    const diferençaPontos = `${jogador1.pontoTotal} - ${jogador2.pontoTotal} `
+    estilo.display = 'flex'
 
     if (ganhou == "ganhou") {
-        estilo.display = 'flex'
         estilo.background = 'green'
-        textoResultado.innerHTML = "PARABENS - Você ganhou!"
+        textoResultado.textContent = `PARABENS - Você ganhou! ${diferençaPontos}`
     } else if (ganhou == "perdeu") {
-        estilo.display = 'flex'
         estilo.background = 'red' 
-        textoResultado.innerHTML = "GAME OVER - Você perdeu!"
+        textoResultado.textContent = `GAME OVER - Você perdeu! ${diferençaPontos }`
     } else if (ganhou == "empate") {
-        estilo.display = 'flex'
-        textoResultado.innerHTML = "EMPATE!"
+        textoResultado.textContent = "EMPATE!"
     }
 }
 
 function atualizarTela(player) {
     atualizaTabuleiro(player)
     atualizaAsides(player)
-    atualizaResultado(player)
 }
-export { atualizarTela }
+export { atualizarTela,mostrarResultado}
