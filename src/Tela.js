@@ -64,16 +64,20 @@ function mostrarResultado(jogador1, jogador2) {
     resultadoCtn.style.backgroundColor="black"
 
     const textoResultado = document.querySelector('.resultado')
+    const textoPlacar = document.querySelector('#placar')
     const ganhou = jogador1.status
     const diferençaPontos = `${jogador1.pontoTotal} - ${jogador2.pontoTotal} `
   
 
     if (ganhou == "ganhou") {
-        textoResultado.textContent = `PARABENS - Você ganhou! ${diferençaPontos}`
+        textoResultado.textContent = `PARABENS - Você ganhou!`
+        textoPlacar.textContent = `${diferençaPontos}`
     } else if (ganhou == "perdeu") {
-        textoResultado.textContent = `GAME OVER - Você perdeu! ${diferençaPontos }`
+        textoResultado.textContent = `GAME OVER - Você perdeu!`
+        textoPlacar.textContent = `${diferençaPontos}`
     } else if (ganhou == "empate") {
         textoResultado.textContent = "EMPATE!"
+        textoPlacar.textContent = `${diferençaPontos}`
     }
 }
 
