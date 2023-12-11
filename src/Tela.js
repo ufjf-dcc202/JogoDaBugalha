@@ -15,7 +15,6 @@ function getElementos(container, tag) {
 
 function setElementos(elementos, inputs, ignora_zeros) {
     const tamanho = inputs.length
-    console.log(elementos)
     for (let i = 0; i < tamanho; i++) {
         if (ignora_zeros == true && inputs[i] == 0) {
             elementos[i].textContent = "";
@@ -24,7 +23,6 @@ function setElementos(elementos, inputs, ignora_zeros) {
         }
     }
     if (tamanho == 0) {
-        console.log("s")
         elementos.textContent = dado[i];
     }
 }
@@ -87,4 +85,20 @@ function atualizarTela(player) {
     atualizaTabuleiro(player)
     atualizaAsides(player)
 }
-export { atualizarTela, mostrarResultado }
+
+function pisca(jogador, numeroRepetido, coluna) {
+    const tabuleiroJogador = jogador.tabuleiroCtn
+    const casas = getElementos(tabuleiroJogador, "TD")
+    const casasPiscadas = [casas[0+coluna],casas[3+coluna],casas[6+coluna]]
+    
+    for (let i = 0; i < 3; i++) {
+        if(casasPiscadas[i].textContent == numeroRepetido){
+            casasPiscadas[i].style.backgroundColor = 'red';
+            setTimeout(() => {
+                casasPiscadas[i].style.backgroundColor = 'white';
+            }, 300)
+        }   
+    }
+}
+
+export { atualizarTela, mostrarResultado, pisca}

@@ -1,4 +1,4 @@
-import { atualizarTela, mostrarResultado } from "./Tela.js"
+import { atualizarTela, mostrarResultado, pisca} from "./Tela.js"
 
 export function criaJogo(player1, player2) {
     return {
@@ -35,7 +35,6 @@ export function criaJogo(player1, player2) {
                 document.querySelector('#body').appendChild(igorVoador) 
                 window.setInterval(()=>{
                     let soltar_laser=  (Math.floor(Math.random() * 10) + 1) 
-                    console.log(soltar_laser)
                     if (soltar_laser==5){
                         igorVoador.src="./assets/Igor_laser.webp"
                         var audio = new Audio('audio.mp3');
@@ -51,7 +50,6 @@ export function criaJogo(player1, player2) {
         start: function () {
             this.player.rolarDado()
             this.bot.rolarDado()
-            console.log("s")
             this.fimJogo = false
                         
             this.easterEggKnop()
@@ -80,7 +78,9 @@ export function criaJogo(player1, player2) {
                 for (let y = 0; y < tamanho; y++) {
                     const casa = quemDeletar.tabuleiro[y][colunaJogada];
 
-                    if (casa == repetido) {
+                    if (casa == repetido && casa != 0) {
+                        pisca(quemDeletar, repetido, colunaJogada)
+
                         quemDeletar.tabuleiro[y][colunaJogada] = 0
                     }
                 }
@@ -162,7 +162,6 @@ export function criaJogo(player1, player2) {
                     }
                     if (e.target == elemento) {
                         const posição = this.player.tabuleiro[posx][posy]
-                        console.log(this.player.tabuleiro,[posx,posy, posição])
                         if (posição==0) {
                             this.cicloJogo(posx, posy)
                         }

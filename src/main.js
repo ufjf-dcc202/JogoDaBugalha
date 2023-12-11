@@ -22,7 +22,6 @@ function setar_click() {
         for (let y = 0; y < collum.length; y++) {
             let elemento = collum[y];
             if (collum[y].tagName == 'TD') {
-                console.log(elemento)
                 elemento.addEventListener("click", (e) => {
                     jogo.pegarPosicoes(e)
                 }
