@@ -25,7 +25,7 @@ function setElementos(elementos, inputs, ignora_zeros) {
     }
     if (tamanho == 0) {
         console.log("s")
-        elemento.textContent = dado[i];
+        elementos.textContent = dado[i];
     }
 }
 

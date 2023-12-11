@@ -33,6 +33,7 @@ main {
 }
 
 .resultados {
+    visibility: hidden  ;
     background-color: white;
     width: 100%;
     word-wrap: normal;
