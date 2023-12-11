@@ -10,7 +10,7 @@ export function criaJogo(player1, player2) {
             const resultadoCtn = document.querySelector('.resultados')
             let resultado = document.querySelector('.resultado')
 
-          
+            
             window.setTimeout(() => {
                 resultadoCtn.style.visibility="visible"
                 resultadoCtn.style.backgroundColor="black"
@@ -32,6 +32,19 @@ export function criaJogo(player1, player2) {
                 igorVoador.src = "./assets/Igor_Knop_com_asa.webp"
                 igorVoador.className= 'igorVoador'
                 document.querySelector('#body').appendChild(igorVoador) 
+                window.setInterval(()=>{
+                    let soltar_laser=  (Math.floor(Math.random() * 10) + 1) 
+                    console.log(soltar_laser)
+                    if (soltar_laser==5){
+                        igorVoador.src="./assets/Igor_laser.webp"
+                        var audio = new Audio('audio.mp3');
+                        audio.src= './assets/igorBlast.mp3'
+                        audio.volume = 0.5;
+                        audio.play(); 
+                        window.setTimeout(()=>{igorVoador.src = "./assets/Igor_Knop_com_asa.webp"},500)
+                    }
+
+                },500)
             },2500)
         },
         start: function () {
@@ -39,6 +52,7 @@ export function criaJogo(player1, player2) {
             this.bot.rolarDado()
             console.log("s")
             this.fimJogo = false
+            
             this.easterEggKnop()
             atualizarTela(this.player)
             atualizarTela(this.bot)
