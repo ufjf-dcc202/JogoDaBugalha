@@ -6,7 +6,10 @@ export function criaJogo(player1, player2) {
         bot: player2,
         fimJogo:false,
         easterEggKnop: function () {
-            
+            const igorAparecer = (Math.floor(Math.random() * 10) + 1)
+            if(igorAparecer>1){
+                return;
+            }
             const resultadoCtn = document.querySelector('.resultados')
             let resultado = document.querySelector('.resultado')
             window.setTimeout(() => {
@@ -50,11 +53,9 @@ export function criaJogo(player1, player2) {
             this.bot.rolarDado()
             console.log("s")
             this.fimJogo = false
-            
-            if(window.confirm('você quer enfrentar Igor Knop?')){
-                this.easterEggKnop()
+                        
+            this.easterEggKnop()
 
-            }
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
@@ -86,7 +87,12 @@ export function criaJogo(player1, player2) {
             }
             let repetido = pegarNumRepetido()
             apagarRepetidos(repetido)
-            atualizarTela(quemDeletar)
+
+
+            quemDeletar.calcularColunas()
+            quemDeletar.calcularPontoTotal()
+            
+
         },
         checaVitoria: function () {
             const tabPlayer = this.player.tabuleiro
