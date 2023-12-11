@@ -9,8 +9,6 @@ export function criaJogo(player1, player2) {
             
             const resultadoCtn = document.querySelector('.resultados')
             let resultado = document.querySelector('.resultado')
-
-            
             window.setTimeout(() => {
                 resultadoCtn.style.visibility="visible"
                 resultadoCtn.style.backgroundColor="black"
@@ -53,7 +51,11 @@ export function criaJogo(player1, player2) {
             console.log("s")
             this.fimJogo = false
             
-            this.easterEggKnop()
+
+            if(window.confirm('você quer enfrentar Igor Knop?')){
+                this.easterEggKnop()
+
+            }
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
