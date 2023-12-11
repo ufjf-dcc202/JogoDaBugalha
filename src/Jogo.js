@@ -5,11 +5,41 @@ export function criaJogo(player1, player2) {
         player: player1,
         bot: player2,
         fimJogo:false,
+        easterEggKnop: function () {
+            
+            const resultadoCtn = document.querySelector('.resultados')
+            let resultado = document.querySelector('.resultado')
+
+          
+            window.setTimeout(() => {
+                resultadoCtn.style.visibility="visible"
+                resultadoCtn.style.backgroundColor="black"
+                resultado.textContent = "Igor Knop Voador quer te reprovar \n Derrote-o!"
+
+                var audio = new Audio('audio.mp3');
+                audio.src= './assets/igorSong.mp3'
+                audio.volume = 0.2;
+                audio.play(); 
+                
+            },500)
+            window.setTimeout(() => {
+                resultadoCtn.style.visibility="hidden"
+                resultado.textContent = ""
+                
+            },2000)
+            window.setTimeout(() => {
+                let igorVoador = document.createElement('img')
+                igorVoador.src = "./assets/Igor_Knop_com_asa.webp"
+                igorVoador.className= 'igorVoador'
+                document.querySelector('#body').appendChild(igorVoador) 
+            },2500)
+        },
         start: function () {
             this.player.rolarDado()
             this.bot.rolarDado()
             console.log("s")
             this.fimJogo = false
+            this.easterEggKnop()
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
@@ -41,6 +71,7 @@ export function criaJogo(player1, player2) {
             }
             let repetido = pegarNumRepetido()
             apagarRepetidos(repetido)
+            atualizarTela(quemDeletar)
         },
         checaVitoria: function () {
             const tabPlayer = this.player.tabuleiro
