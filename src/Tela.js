@@ -60,21 +60,23 @@ function atualizaAsides(jogador) {
 
 function mostrarResultado(jogador1, jogador2) {
     const resultadoCtn = document.querySelector('.resultados')
-    resultadoCtn.style.visibility="visible"
-    resultadoCtn.style.backgroundColor="black"
+    resultadoCtn.style.visibility = "visible"
+    resultadoCtn.style.backgroundColor = "black"
 
     const textoResultado = document.querySelector('.resultado')
     const textoPlacar = document.querySelector('#placar')
     const ganhou = jogador1.status
     const diferençaPontos = `${jogador1.pontoTotal} - ${jogador2.pontoTotal} `
-  
+
 
     if (ganhou == "ganhou") {
         textoResultado.textContent = `PARABENS - Você ganhou!`
         textoPlacar.textContent = `${diferençaPontos}`
+        resultadoCtn.style.backgroundColor = "green"
     } else if (ganhou == "perdeu") {
         textoResultado.textContent = `GAME OVER - Você perdeu!`
         textoPlacar.textContent = `${diferençaPontos}`
+        resultadoCtn.style.backgroundColor = "red"
     } else if (ganhou == "empate") {
         textoResultado.textContent = "EMPATE!"
         textoPlacar.textContent = `${diferençaPontos}`
@@ -85,4 +87,4 @@ function atualizarTela(player) {
     atualizaTabuleiro(player)
     atualizaAsides(player)
 }
-export { atualizarTela,mostrarResultado}
+export { atualizarTela, mostrarResultado }

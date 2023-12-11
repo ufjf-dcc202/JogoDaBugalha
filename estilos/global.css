@@ -30,7 +30,6 @@ main {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-
 }
 
 .resultados {
@@ -41,10 +40,8 @@ main {
     font-size: xx-large;
 
     padding: 15px;
-    border: 0px solid black;
+    border: 3px solid black;
     border-radius: 5px;
-
-
 
     display: flex;
     flex-direction: column;

@@ -51,7 +51,6 @@ export function criaJogo(player1, player2) {
             console.log("s")
             this.fimJogo = false
             
-
             if(window.confirm('você quer enfrentar Igor Knop?')){
                 this.easterEggKnop()
 
