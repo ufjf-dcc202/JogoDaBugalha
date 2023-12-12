@@ -13,7 +13,7 @@ body {
     visibility: hidden;
     -webkit-animation: none;
     width: 100%;
-    opacity: 20%;
+    opacity: 60%;
 }
 
 .vitoria {
@@ -71,7 +71,7 @@ main {
     justify-content: center;
     text-align: center;
     font-family:'Alegreya Sans SC';
-    font-size: 3.2rem;
+    font-size: 2rem;
 }
 
 .resultados .resultado {

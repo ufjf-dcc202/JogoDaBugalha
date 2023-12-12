@@ -68,7 +68,7 @@ function mostrarResultado(jogador1, jogador2) {
 
 
     if (ganhou == "ganhou") {
-        textoResultado.textContent = `CONGRATULATIONS! - Você ganhou!`
+        textoResultado.textContent = `PARABÉNS! - Você ganhou!`
         textoPlacar.textContent = `${diferençaPontos}`
         resultadoCtn.style.backgroundColor = "green"
 
