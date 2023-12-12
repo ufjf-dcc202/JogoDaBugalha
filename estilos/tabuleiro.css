@@ -6,7 +6,7 @@
     border: 0px solid black;
     padding: 0px;  
     border-radius: 15px;
-    
+    font-family: 'Mina', sans-serif;
 }
 
 .tabuleiro td{
@@ -16,10 +16,12 @@
     border: 3.5px solid black;
     border-radius: 5px;
     color: black;
+    font-size: x-large;
+    font-weight: 800;
 }
 
 .tabuleiro td:hover{
-    background-color: gray;
+    background-color: gray !important;
     color: white;
 }
 
@@ -27,4 +29,5 @@
     width: 40px;
     text-align: center;
     height: 40px;
+    font-size: 20px;
 }

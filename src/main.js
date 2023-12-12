@@ -15,7 +15,7 @@ let jogo = criaJogo(player, bot)
 jogo.start()
 
 function setar_click() {
-    let tabuleiro = document.getElementById('tab_player')
+    let tabuleiro = document.querySelector('#tab_player')
     let rows = tabuleiro.children
     for (let x = 0; x < rows.length; x++) {
         let collum = rows[x].children
