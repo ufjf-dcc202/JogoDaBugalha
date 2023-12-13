@@ -1,59 +1,18 @@
 import { atualizarTela, mostrarResultado, pisca} from "./Tela.js"
+import { easterEggKnop } from "./easterEgg.js"
 
 export function criaJogo(player1, player2) {
     return {
         player: player1,
         bot: player2,
         fimJogo:false,
-        easterEggKnop: function () {
-            const igorAparecer = (Math.floor(Math.random() * 10) + 1)
-            if(igorAparecer>1){
-                return;
-            }
-            const resultadoCtn = document.querySelector('.resultados')
-            let resultado = document.querySelector('.resultado')
-            setTimeout(() => {
-                resultadoCtn.style.visibility="visible"
-                resultadoCtn.style.backgroundColor="black"
-                resultado.textContent = "Igor Knop Voador quer te reprovar \n Derrote-o!"
-
-                var audio = new Audio('audio.mp3');
-                audio.src= './assets/igorSong.mp3'
-                audio.volume = 0.2;
-                audio.play(); 
-                
-            },500)
-            setTimeout(() => {
-                resultadoCtn.style.visibility="hidden"
-                resultado.textContent = ""
-                
-            },2000)
-            setTimeout(() => {
-                let igorVoador = document.createElement('img')
-                igorVoador.src = "./assets/Igor_Knop_com_asa.webp"
-                igorVoador.className= 'igorVoador'
-                document.querySelector('#body').appendChild(igorVoador) 
-                setInterval(()=>{
-                    let soltar_laser=  (Math.floor(Math.random() * 10) + 1) 
-                    if (soltar_laser==5){
-                        igorVoador.src="./assets/Igor_laser.webp"
-                        var audio = new Audio('audio.mp3');
-                        audio.src= './assets/igorBlast.mp3'
-                        audio.volume = 0.5;
-                        audio.play(); 
-                        setTimeout(()=>{igorVoador.src = "./assets/Igor_Knop_com_asa.webp"},500)
-                    }
-
-                },500)
-            },2500)
-        },
         start: function () {
             this.player.rolarDado()
             this.bot.rolarDado()
             this.fimJogo = false
-                        
-            this.easterEggKnop()
-
+            
+            easterEggKnop()
+            
             atualizarTela(this.player)
             atualizarTela(this.bot)
         },
@@ -77,24 +36,24 @@ export function criaJogo(player1, player2) {
             function apagarRepetidos(repetido) {
                 for (let y = 0; y < tamanho; y++) {
                     const casa = quemDeletar.tabuleiro[y][colunaJogada];
-
+                    
                     if (casa == repetido && casa != 0) {
                         pisca(quemDeletar, repetido, colunaJogada)
-
+                        
                         quemDeletar.tabuleiro[y][colunaJogada] = 0
                     }
                 }
             }
             let repetido = pegarNumRepetido()
             apagarRepetidos(repetido)
-
+            
             quemDeletar.calcularColunas()
             quemDeletar.calcularPontoTotal()
         },
         checaVitoria: function () {
             const tabPlayer = this.player.tabuleiro
             const tabBot = this.bot.tabuleiro
-
+            
             function checa_tabuleiro(tabuleiro) {
                 const tamanho = tabuleiro.length
                 let fim_de_jogo = true
@@ -103,7 +62,7 @@ export function criaJogo(player1, player2) {
                         if (tabuleiro[x][y] == 0) {
                             fim_de_jogo = false
                         }
-
+                        
                     }
                 }
                 return fim_de_jogo;
@@ -120,7 +79,7 @@ export function criaJogo(player1, player2) {
                     player1.status = 'empate'
                 }
                 mostrarResultado(this.player,this.bot)
-
+                
             }
             return acabou;
         },
