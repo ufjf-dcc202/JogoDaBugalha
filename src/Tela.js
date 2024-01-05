@@ -65,36 +65,32 @@ function mostrarResultado(jogador1, jogador2) {
     const textoPlacar = document.querySelector('#placar')
     const ganhou = jogador1.status
     const diferençaPontos = `${jogador1.pontoTotal} - ${jogador2.pontoTotal} `
-
+    
+    var audio = new Audio('audio.mp3');
+    audio.volume = 0.5;
 
     if (ganhou == "ganhou") {
         textoResultado.textContent = `PARABÉNS! - Você ganhou!`
-        textoPlacar.textContent = `${diferençaPontos}`
         resultadoCtn.style.backgroundColor = "green"
 
-        var audio = new Audio('audio.mp3');
         audio.src= './assets/vitoria.mp3'
-        audio.volume = 0.5;
         audio.play();
         const fundo = document.querySelector(".vitoria")
         fundo.style.visibility = "visible";
 
     } else if (ganhou == "perdeu") {
         textoResultado.textContent = `GAME OVER - Você perdeu!`
-        textoPlacar.textContent = `${diferençaPontos}`
         resultadoCtn.style.backgroundColor = "red"
 
-        var audio = new Audio('audio.mp3');
         audio.src= './assets/derrota.mp3'
-        audio.volume = 0.5;
         audio.play();
         const fundo = document.querySelector(".derrota")
         fundo.style.visibility = "visible";
         
     } else if (ganhou == "empate") {
         textoResultado.textContent = "EMPATE!"
-        textoPlacar.textContent = `${diferençaPontos}`
     }
+    textoPlacar.textContent = `${diferençaPontos}`
 }
 
 function atualizarTela(player) {
@@ -112,7 +108,7 @@ function pisca(jogador, numeroRepetido, coluna) {
             casasPiscadas[i].style.backgroundColor = 'red';
             setTimeout(() => {
                 casasPiscadas[i].style.backgroundColor = 'white';
-            }, 280)
+            }, 300)
         }   
     }
 }
