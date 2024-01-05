@@ -1,5 +1,9 @@
 import { atualizarTela, mostrarResultado, pisca} from "./Tela.js"
+<<<<<<< HEAD
 import { easterEggKnop } from "./EasterEgg.js"
+=======
+import { easterEggKnop } from "./EasterEgg.js"
+>>>>>>> origin/main
 
 export function criaJogo(player1, player2) {
     return {
