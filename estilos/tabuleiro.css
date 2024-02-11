@@ -73,11 +73,7 @@ td{
 }
 .tabuleiro td[dado-value='6']{
     background-image:url('../assets/dados/dado6.png');
-}.tabuleiro td:active{
-    background-color: gray !important;
-
-} 
-
+}
 .tabuleiro th{
     width: 20%;
     text-align: center;

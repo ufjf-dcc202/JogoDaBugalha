@@ -60,6 +60,11 @@
         font-family:'Alegreya Sans SC';
         font-size: 100%;
     }
+    .tabuleiro td:hover{
+        background-color: gray !important;
+    
+    } 
+    
 }
 @media screen and (max-width: 500px){
     .jogo{
@@ -69,6 +74,10 @@
 
 }
 @media screen and (max-width: 1000px){
+    .tabuleiro td:active{
+        background-color: gray !important;
+    
+    } 
     
    
     .jogo {

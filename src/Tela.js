@@ -78,8 +78,10 @@ function mostrarResultado(jogador1, jogador2) {
     const resultadoCtn = document.querySelector('.resultados')
     
     resultadoCtn.style.visibility = "visible"
+    resultadoCtn.style.fontFamily = "VT323"
     resultadoCtn.style.backgroundColor = "black"
-
+    resultadoCtn.style.color= "white"
+    
     const textoResultado = document.querySelector('.resultado')
     const textoPlacar = document.querySelector('#placar')
     const ganhou = jogador1.status
@@ -90,12 +92,10 @@ function mostrarResultado(jogador1, jogador2) {
 
     if (ganhou == "ganhou") {
         textoResultado.textContent = `PARABÉNS! - Você ganhou!`
-        resultadoCtn.style.backgroundColor = "green"
 
         
     } else if (ganhou == "perdeu") {
         textoResultado.textContent = `GAME OVER - Você perdeu!`
-        resultadoCtn.style.backgroundColor = "red"
 
         
     } else if (ganhou == "empate") {
