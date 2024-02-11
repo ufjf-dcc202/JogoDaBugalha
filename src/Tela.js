@@ -76,6 +76,7 @@ function atualizaAsides(jogador) {
 
 function mostrarResultado(jogador1, jogador2) {
     const resultadoCtn = document.querySelector('.resultados')
+    
     resultadoCtn.style.visibility = "visible"
     resultadoCtn.style.backgroundColor = "black"
 
@@ -91,19 +92,11 @@ function mostrarResultado(jogador1, jogador2) {
         textoResultado.textContent = `PARABÉNS! - Você ganhou!`
         resultadoCtn.style.backgroundColor = "green"
 
-        audio.src= './assets/vitoria.mp3'
-        audio.play();
-        const fundo = document.querySelector(".vitoria")
-        fundo.style.visibility = "visible";
-
+        
     } else if (ganhou == "perdeu") {
         textoResultado.textContent = `GAME OVER - Você perdeu!`
         resultadoCtn.style.backgroundColor = "red"
 
-        audio.src= './assets/derrota.mp3'
-        audio.play();
-        const fundo = document.querySelector(".derrota")
-        fundo.style.visibility = "visible";
         
     } else if (ganhou == "empate") {
         textoResultado.textContent = "EMPATE!"
