@@ -1,16 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
 
-body {
-    display: flex;
+@media screen and (min-width: 800px){
+    .jogo {
+        display: flex;
+        max-width:  80vw;
+        max-height: 90vh;
+        width: 80%;
+        aspect-ratio: 16/9;
+        margin: 0%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    
+        border: 5px solid black;
+        font-family: "Pixelify Sans";
+        font-weight: 400;
+    }
+}
+@media screen and (max-width: 800px) {
+    .jogo {
+        display: flex;
+        
+        margin: 0%;
+       
+        border: 5px solid black;
+        font-family: "Pixelify Sans";
+        font-weight: 400;
+
+        width: 90vh;
+        height: 90vw;
+        transform: rotate(270deg);
+    }
+
+}
+body{
+    width: 100vw;
     height: 100vh;
     margin: 0%;
-    overflow-y: hidden;
-    overflow-x: hidden;
-
-    font-family: "Pixelify Sans";
-    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .derrota {
     position: fixed;
@@ -54,6 +86,7 @@ main {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
 .resultados {
@@ -62,9 +95,8 @@ main {
     width: 95%;
     word-wrap: normal;
     color: white;
-    height: 40%;
+    height: 15%;
 
-    padding: 15px;
     border: 3px solid black;
     border-radius: 5px;
 
@@ -74,7 +106,7 @@ main {
     justify-content: center;
     text-align: center;
     font-family:'Alegreya Sans SC';
-    font-size: 2rem;
+    font-size: 10)%;
 }
 
 .resultados .resultado {

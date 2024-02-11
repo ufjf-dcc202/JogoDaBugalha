@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
   
 .tabuleiro{
-    margin: 40px;
     height: auto;
-    min-height: 20%;
     max-height: 100%;
+    height: 20%;
     width:60%;
     border: 0px solid black;
     padding: 0px;  
         padding: 10px;
 
     border-radius: 15px;
+    
     border: 10px solid black;
 }
 tr{
@@ -37,8 +37,7 @@ td{
     -webkit-border-vertical-spacing: 0;
 }
 .tabuleiro td{
-    margin-top: 10px;
-
+    margin-top: 5%;
     position: relative;
     width:20%;
     aspect-ratio: 1/1;
@@ -86,5 +85,5 @@ td{
     font-weight: 400;
     font-style: normal;
     height: 40px;
-    font-size: 30px;
+    font-size: 100%;
 }

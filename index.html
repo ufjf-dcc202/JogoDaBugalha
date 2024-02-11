@@ -15,78 +15,81 @@
 </head>
 
 <body id="body">
-    <img class="derrota" src="./assets/chuva.gif">
-    <img class="vitoria" src="./assets/confete.gif">
+    <div class="jogo">
+        <img class="derrota" src="./assets/chuva.gif">
+        <img class="vitoria" src="./assets/confete.gif">
+    
+        <aside class="aside">
+            <div class="dado player" id="dado_player">0</div>
+            <div class="pontos" id="pontos_player">0</div>
+        </aside>
+        <main>
+    
+            <table class="tabuleiro">
+                <tbody id="tab_player">
+                    <tr>
+                        <th><span>0</span></th>
+                        <th><span>0</span></th>
+                        <th><span>0</span></th>
+                    </tr>
+                    <tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                    </tr>
+                    <tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                    </tr>
+                    <tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                    </tr>
+    
+                </tbody>
+            </table>
+            <div class="resultados">
+                <p class="resultado">Jogo da Bugalha</p>
+                <p class="resultado" id="placar"></p>
+            </div>
+            <table class="tabuleiro">
+                <tbody id="tab_bot">
+                    <tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                    </tr>
+                    <tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                    </tr>
+                    <tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                    </tr>
+                    <tr>
+                        <th><span>0</span></th>
+                        <th><span>0</span></th>
+                        <th><span>0</span></th>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </main>
+        <aside class="aside">
+            <div class="dado bot" id="dado_bot">
+                0
+            </div>
+            <div class="pontos" id="pontos_bot">
+    
+            </div>
+        </aside>
+    </div>
 
-    <aside class="aside">
-        <div class="dado player" id="dado_player">0</div>
-        <div class="pontos" id="pontos_player">0</div>
-    </aside>
-    <main>
-
-        <table class="tabuleiro">
-            <tbody id="tab_player">
-                <tr>
-                    <th><span>0</span></th>
-                    <th><span>0</span></th>
-                    <th><span>0</span></th>
-                </tr>
-                <tr>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                </tr>
-                <tr>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                </tr>
-                <tr>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                </tr>
-
-            </tbody>
-        </table>
-        <div class="resultados">
-            <p class="resultado">Jogo da Bugalha</p>
-            <p class="resultado" id="placar"></p>
-        </div>
-        <table class="tabuleiro">
-            <tbody id="tab_bot">
-                <tr>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                </tr>
-                <tr>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                </tr>
-                <tr>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                </tr>
-                <tr>
-                    <th><span>0</span></th>
-                    <th><span>0</span></th>
-                    <th><span>0</span></th>
-                </tr>
-            </tbody>
-        </table>
-
-    </main>
-    <aside class="aside">
-        <div class="dado bot" id="dado_bot">
-            0
-        </div>
-        <div class="pontos" id="pontos_bot">
-
-        </div>
-    </aside>
     <script type="module" src="./src/Tela.js"></script>
 
 </body>
