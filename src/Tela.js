@@ -18,6 +18,8 @@ function setElementos(elementos, inputs, ignora_zeros) {
     for (let i = 0; i < tamanho; i++) {
         if (ignora_zeros == true && inputs[i] == 0) {
             elementos[i].textContent = "";
+            elementos[i].setAttribute("dado-value", inputs[i])
+
         } else {
             elementos[i].textContent = inputs[i];
             elementos[i].setAttribute("dado-value", inputs[i])
@@ -26,6 +28,7 @@ function setElementos(elementos, inputs, ignora_zeros) {
     }
     if (tamanho == 0) {
         elementos.textContent = dado[i];
+
     }
 
 }
@@ -112,24 +115,21 @@ function pisca(jogador, numeroRepetido, coluna) {
     
     for (let i = 0; i < 3; i++) {
         if(casasPiscadas[i].textContent == numeroRepetido){
-            casasPiscadas[i].style.backgroundColor = 'red';
+            casasPiscadas[i].style.backgroundColor = '#FFCCCB';
             setTimeout(() => {
                 casasPiscadas[i].style.backgroundColor = 'white';
-            }, 300)
+            }, 800)
         }   
     }
 }
 function piscaPosicinar(linha, coluna,tabuleiro){
-
     const casas = getElementos(tabuleiro, "TD")
     const linhas = [casas[0+coluna],casas[3+coluna],casas[6+coluna]]
 
-    linhas[linha].style.backgroundColor = 'blue';
-    linhas[linha].style.color = 'white';
+    linhas[linha].style.backgroundColor = '#ADD8E6';
     setTimeout(() => {
         linhas[linha].style.backgroundColor = 'white';
-        linhas[linha].style.color = 'black';
-    }, 300)
+    }, 800)
     
 
 }

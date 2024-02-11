@@ -1,57 +1,86 @@
 .tabuleiro{
     margin: 40px;
-    height: 100%;
-    width:50%;
-
+    height: auto;
+    min-height: 20%;
+    max-height: 100%;
+    width:60%;
     border: 0px solid black;
     padding: 0px;  
+        padding: 10px;
+
     border-radius: 15px;
     font-family: 'Mina', sans-serif;
-    table-layout:fixed;
+    border: 10px solid black;
 }
-
+tr{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: calc(100% / 9) ;
+}
+td{
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-collapse: inherit;
+    border-spacing: 0;
+    border-color: inherit;
+    vertical-align: inherit;
+    text-align: left;
+    font-weight: inherit;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+}
 .tabuleiro td{
-    width: 40px;
+    margin-top: 10px;
+
+    position: relative;
+    width:20%;
+    aspect-ratio: 1/1;
     text-align: center;
-    height: 40px;
-    border: 3.5px solid black;
+    border: 0px solid black;
     border-radius: 5px;
-    color: black;
+    color: rgba(0, 0, 0, 0);
     font-size: x-large;
     font-weight: 800;
     padding: 0px;
+
+    border-collapse:collapse;
+    border-spacing:0;
+    box-sizing: content-box;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: multiply;
 }
-/* .tabuleiro td[dado-value='1']{
-    background:url('../assets/dados/dado1.png');
-    width: 40px;
-    background-size: cover;
+.tabuleiro td[dado-value='1']{
+    background-image    :url('../assets/dados/dado1.png');
 }
 .tabuleiro td[dado-value='2']{
-    background:url('../assets/dados/dado2.png');
-    background-size: cover;
+    background-image    :url('../assets/dados/dado2.png');
 }
 .tabuleiro td[dado-value='3']{
-    background:url('../assets/dados/dado3.png');
-    background-size: cover;
+    background-image    :url('../assets/dados/dado3.png');
 }
 .tabuleiro td[dado-value='4']{
-    background:url('../assets/dados/dado4.png');
-    background-size: cover;
+    background-image    :url('../assets/dados/dado4.png');
 }
 .tabuleiro td[dado-value='5']{
-    background:url('../assets/dados/dado5.png');
-    background-size: cover;
+    background-image    :url('../assets/dados/dado5.png');
 }
 .tabuleiro td[dado-value='6']{
-    background:url('../assets/dados/dado6.png');
-    background-size: cover;
+    background-image:url('../assets/dados/dado6.png');
 }.tabuleiro td:hover{
     background-color: gray !important;
-    color: white;
-} */
+
+} 
 
 .tabuleiro th{
-    width: 40px;
+    width: 20%;
     text-align: center;
     height: 40px;
     font-size: 20px;
