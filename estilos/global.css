@@ -58,7 +58,7 @@
         justify-content: center;
         text-align: center;
         font-family:'Alegreya Sans SC';
-        font-size: 10%;
+        font-size: 100%;
     }
 }
 @media screen and (max-width: 500px){
@@ -140,7 +140,6 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        font-family:'Alegreya Sans SC';
         font-size: 100%;
     }
 }
