@@ -54,10 +54,10 @@ function atualizaTabuleiro(jogador) {
     setElementos(casas_ctn, casas_sanitizada, true)
 }
 
-function attTotalPontos(pontoTotalCtn, pontoTotal,src) {
+function attTotalPontos(pontoTotalCtn, pontoTotal,jogador) {
     setElementos(pontoTotalCtn, pontoTotal, false)
-    let img = document.createElement('img');
-    img.src = '../assets/captura.png';
+    let img = document.createElement('h3');
+    img.textContent = jogador.nome;
     
     pontoTotalCtn[0].appendChild(img);
 
@@ -71,7 +71,7 @@ function atualizaAsides(jogador) {
 
     setElementos(dadoCtn, dado, false)
     dadoCtn[0].setAttribute("dado-value", dado[0])
-    attTotalPontos(pontoTotalCtn, pontoTotal)
+    attTotalPontos(pontoTotalCtn, pontoTotal,jogador)
 }
 
 function mostrarResultado(jogador1, jogador2) {

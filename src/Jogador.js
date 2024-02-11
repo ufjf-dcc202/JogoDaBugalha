@@ -1,6 +1,7 @@
 import { piscaPosicinar } from "./Tela.js";
-export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
+export function criaJogador(div_tabuleiro, div_dado, div_pontos,nome) {
     return {
+        nome:nome,
         tabuleiroCtn: div_tabuleiro,
         dadoCtn: div_dado,
         pontoCtn: div_pontos,

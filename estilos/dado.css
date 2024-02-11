@@ -60,6 +60,7 @@
     background-color: white;
     color: black;
 
+    gap:  1rem;
     font-weight: 400;
     font-style: normal;
     font-size: 30px;
@@ -70,8 +71,7 @@
     width: 50%;
     aspect-ratio: 2/1;
 }
-.pontos img{
-    animation: none;
-    width: 20%;
-    aspect-ratio: 252/331;
+.pontos h3{
+    margin: 0;
+    padding: 0%;
 }

@@ -10,8 +10,8 @@ let divTabuleiroBot = document.querySelector('#tab_bot')
 let divDadoBot = document.querySelector('#dado_bot')
 let divPontoBot = document.querySelector('#pontos_bot')
 
-let player = criaJogador(divTabuleiroPlayer, divDadoPlayer, divPontoPlayer)
-let bot = criaJogador(divTabuleiroBot, divDadoBot, divPontoBot)
+let player = criaJogador(divTabuleiroPlayer, divDadoPlayer, divPontoPlayer,'player')
+let bot = criaJogador(divTabuleiroBot, divDadoBot, divPontoBot,'bot')
 let jogo = criaJogo(player, bot)
 jogo.start()
 
