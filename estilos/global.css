@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
 
 @media screen and (max-width: 1000px){
+    .jogo{height: 90%;}
     .jogo::after{
         position: absolute;
         content: 'Resolução invalida, seu dispositivo não suporta a resolução mínima de 1040px de largura e 600px de altura. Caso use um dispositivo móvel, vire a tela para a horizontal.';
