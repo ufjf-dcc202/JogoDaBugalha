@@ -112,5 +112,19 @@ function pisca(jogador, numeroRepetido, coluna) {
         }   
     }
 }
+function piscaPosicinar(linha, coluna,tabuleiro){
 
-export { atualizarTela, mostrarResultado, pisca}
+    const casas = getElementos(tabuleiro, "TD")
+    const linhas = [casas[0+coluna],casas[3+coluna],casas[6+coluna]]
+
+    linhas[linha].style.backgroundColor = 'blue';
+    linhas[linha].style.color = 'white';
+    setTimeout(() => {
+        linhas[linha].style.backgroundColor = 'white';
+        linhas[linha].style.color = 'black';
+    }, 300)
+    
+
+}
+
+export { atualizarTela, mostrarResultado, pisca,piscaPosicinar}

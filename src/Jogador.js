@@ -1,3 +1,4 @@
+import { piscaPosicinar } from "./Tela.js";
 export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
     return {
         tabuleiroCtn: div_tabuleiro,
@@ -13,6 +14,7 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos) {
             let valor = this.dado
             this.tabuleiro[x][y] = valor;
             this.calcularColunas()
+            piscaPosicinar( x, y,this.tabuleiroCtn)
             this.calcularPontoTotal()
         },
         rolarDado: function () {
