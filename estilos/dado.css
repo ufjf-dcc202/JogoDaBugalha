@@ -4,13 +4,14 @@
     justify-content: center;
     
     text-align: center;
-    border: 2px solid black;
+    border: 0px solid black;
     border-radius: 15px;
     background-color: black;
-    color: whitesmoke;
-
+    color: rgba(0, 0, 0, 0);
     width: 20%;
     aspect-ratio: 1/1;
+    background:url('../assets/dados.avif');
+    background-size:cover;
     max-width: 300px;
 }
 .dado.player{
@@ -19,7 +20,30 @@
 .dado.bot{
     grid-row: 1;
 }
-
+.dado[dado-value='1']{
+    background:url('../assets/dados/dado1.png');
+    background-size: cover;
+}
+.dado[dado-value='2']{
+    background:url('../assets/dados/dado2.png');
+    background-size: cover;
+}
+.dado[dado-value='3']{
+    background:url('../assets/dados/dado3.png');
+    background-size: cover;
+}
+.dado[dado-value='4']{
+    background:url('../assets/dados/dado4.png');
+    background-size: cover;
+}
+.dado[dado-value='5']{
+    background:url('../assets/dados/dado5.png');
+    background-size: cover;
+}
+.dado[dado-value='6']{
+    background:url('../assets/dados/dado6.png');
+    background-size: cover;
+}
 .pontos{
     grid-row: 2;
     border-radius: 15px;

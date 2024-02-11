@@ -7,6 +7,7 @@
     padding: 0px;  
     border-radius: 15px;
     font-family: 'Mina', sans-serif;
+    table-layout:fixed;
 }
 
 .tabuleiro td{
@@ -18,12 +19,36 @@
     color: black;
     font-size: x-large;
     font-weight: 800;
+    padding: 0px;
 }
-
-.tabuleiro td:hover{
+/* .tabuleiro td[dado-value='1']{
+    background:url('../assets/dados/dado1.png');
+    width: 40px;
+    background-size: cover;
+}
+.tabuleiro td[dado-value='2']{
+    background:url('../assets/dados/dado2.png');
+    background-size: cover;
+}
+.tabuleiro td[dado-value='3']{
+    background:url('../assets/dados/dado3.png');
+    background-size: cover;
+}
+.tabuleiro td[dado-value='4']{
+    background:url('../assets/dados/dado4.png');
+    background-size: cover;
+}
+.tabuleiro td[dado-value='5']{
+    background:url('../assets/dados/dado5.png');
+    background-size: cover;
+}
+.tabuleiro td[dado-value='6']{
+    background:url('../assets/dados/dado6.png');
+    background-size: cover;
+}.tabuleiro td:hover{
     background-color: gray !important;
     color: white;
-}
+} */
 
 .tabuleiro th{
     width: 40px;

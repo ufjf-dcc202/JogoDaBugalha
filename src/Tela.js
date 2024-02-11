@@ -20,11 +20,14 @@ function setElementos(elementos, inputs, ignora_zeros) {
             elementos[i].textContent = "";
         } else {
             elementos[i].textContent = inputs[i];
+            elementos[i].setAttribute("dado-value", inputs[i])
+
         }
     }
     if (tamanho == 0) {
         elementos.textContent = dado[i];
     }
+
 }
 
 function atualizaTabuleiro(jogador) {
@@ -43,6 +46,9 @@ function atualizaTabuleiro(jogador) {
     const casas_ctn = getElementos(tabuleiroCtn, "TD")
     const pontos_ctn = getElementos(tabuleiroCtn, "TH")
     setElementos(pontos_ctn, matrizPontos, false)
+
+    
+
     setElementos(casas_ctn, casas_sanitizada, true)
 }
 
@@ -53,6 +59,7 @@ function atualizaAsides(jogador) {
     const dadoCtn = [jogador.dadoCtn]
 
     setElementos(dadoCtn, dado, false)
+    dadoCtn[0].setAttribute("dado-value", dado[0])
     setElementos(pontoTotalCtn, pontoTotal, false)
 }
 
