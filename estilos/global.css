@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
-@media screen and (min-width:600px) and (min-height:300px) {
+@media screen and (min-aspect-ratio: 16/9) {
     .jogo::after{
         content: "resoulução não é compatível com este jogo";
         position: absolute;
