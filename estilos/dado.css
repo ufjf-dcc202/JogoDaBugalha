@@ -19,7 +19,7 @@
     mix-blend-mode: multiply;
 
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 1000px){
     .pontos{
         height: 90%;
     }
