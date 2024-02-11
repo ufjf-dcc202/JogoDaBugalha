@@ -1,37 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
 
-@media screen and (min-width: 800px){
-    .jogo {
+@media screen and (max-width: 800px){
+    .jogo::after{
+        position: absolute;
+        content: 'Resolução invalida, seu dispositivo não suporta a resolução mínima de 800px de largura e 600px de altura. Caso use um dispositivo móvel, vire a tela para a horizontal.';
+        width: 100%;
+        height: 100%;
+        top: 0 ;
+        left: 0;
+        text-align: center;
         display: flex;
-        max-width:  80vw;
-        max-height: 90vh;
-        width: 80%;
-        aspect-ratio: 16/9;
-        margin: 0%;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    
-        border: 5px solid black;
-        font-family: "Pixelify Sans";
-        font-weight: 400;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 1);
     }
+
 }
-@media screen and (max-width: 800px) {
-    .jogo {
-        display: flex;
-        
-        margin: 0%;
-       
-        border: 5px solid black;
-        font-family: "Pixelify Sans";
-        font-weight: 400;
+.jogo {
+    display: flex;
+    max-width:  80vw;
+    max-height: 90vh;
+    width: 80%;
+    aspect-ratio: 16/9;
+    margin: 0%;
+    overflow-y: hidden;
+    overflow-x: hidden;
 
-        width: 90vh;
-        height: 90vw;
-        transform: rotate(270deg);
-    }
-
+    border: 5px solid black;
+    font-family: "Pixelify Sans";
+    font-weight: 400;
 }
 body{
     width: 100vw;
