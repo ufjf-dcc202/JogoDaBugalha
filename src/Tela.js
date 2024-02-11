@@ -17,20 +17,19 @@ function setElementos(elementos, inputs, ignora_zeros) {
     const tamanho = inputs.length
     for (let i = 0; i < tamanho; i++) {
         if (ignora_zeros == true && inputs[i] == 0) {
+            
             elementos[i].textContent = "";
             elementos[i].setAttribute("dado-value", inputs[i])
 
         } else {
             elementos[i].textContent = inputs[i];
             elementos[i].setAttribute("dado-value", inputs[i])
-
         }
     }
     if (tamanho == 0) {
         elementos.textContent = dado[i];
 
     }
-
 }
 
 function atualizaTabuleiro(jogador) {
@@ -55,6 +54,15 @@ function atualizaTabuleiro(jogador) {
     setElementos(casas_ctn, casas_sanitizada, true)
 }
 
+function attTotalPontos(pontoTotalCtn, pontoTotal,src) {
+    setElementos(pontoTotalCtn, pontoTotal, false)
+    let img = document.createElement('img');
+    img.src = '../assets/captura.png';
+    
+    pontoTotalCtn[0].appendChild(img);
+
+
+}
 function atualizaAsides(jogador) {
     const pontoTotal = [jogador.pontoTotal]
     const pontoTotalCtn = [jogador.pontoCtn]
@@ -63,7 +71,7 @@ function atualizaAsides(jogador) {
 
     setElementos(dadoCtn, dado, false)
     dadoCtn[0].setAttribute("dado-value", dado[0])
-    setElementos(pontoTotalCtn, pontoTotal, false)
+    attTotalPontos(pontoTotalCtn, pontoTotal)
 }
 
 function mostrarResultado(jogador1, jogador2) {
