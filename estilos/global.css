@@ -1,43 +1,165 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
-
-@media screen and (max-width: 600px){
-    
+@media screen and (min-width:600px) and (min-height:300px) {
     .jogo::after{
+        content: "resoulução não é compatível com este jogo";
         position: absolute;
-        content: 'Resolução invalida, seu dispositivo não suporta a resolução mínima de 1040px de largura e 600px de altura. Caso use um dispositivo móvel, vire a tela para a horizontal.';
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        top: 0 ;
-        left: 0;
-        text-align: center;
+        background-color: rgba(0, 0, 0, 1);
+        color: white;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
-        background-color: rgba(0, 0, 0, 1);
-    }
-
-}
-
-.jogo {
-    display: flex;
+        z-index: 1;
     
-    width: 80%;
-    aspect-ratio: 16/9;
-    margin: 0%;
-    margin: 10px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-
-    border: 5px solid black;
-    font-family: "Pixelify Sans";
-    font-weight: 400;
+    }
+    body{
+        overflow: hidden;
+    }
 }
+@media screen and (min-width: 600px){
+    .jogo {
+        display: flex;
+        
+        width: 80%;
+        aspect-ratio: 16/9;
+        
+    
+        border: 5px solid black;
+        font-family: "Pixelify Sans";
+        font-weight: 400;
+    }
+    .aside {
+        display: grid;
+        flex-direction: end;
+        flex-direction: column-reverse;
+    
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    
+        justify-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 50px;
+       
+        font-weight: 800;
+    }
+    
+    main {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    .resultados {
+        visibility: hidden  ;
+        background-color: white;
+        width: 95%;
+        word-wrap: normal;
+        color: white;
+        height: 15%;
+    
+        border: 3px solid black;
+        border-radius: 5px;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family:'Alegreya Sans SC';
+        font-size: 10%;
+    }
+}
+@media screen and (max-width: 600px){
+    
+    
+    .jogo {
+        display: flex;
+        aspect-ratio: auto;
+        width: 100%;
+        height: 100vh;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        overflow-y: scroll;
+        
+        flex-direction: column-reverse;
+
+        padding-top: 3px;
+        padding-bottom: 3px;
+        border: 0px solid black;
+        font-family: "Pixelify Sans";
+        font-weight: 400;
+
+        gap: 0px;
+    }
+   .aside{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        background-color: ;
+        height: 10%;
+   }
+   .aside.player{
+    border-top: 5px solid black;
+    padding-top: 1rem;
+    flex-direction: row-reverse;
+
+   }
+   .aside.bot{
+    border-bottom: 5px solid black;
+    padding-bottom: 1rem;
+   }
+    main {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        gap: 5px;
+    }
+    .resultados {
+        visibility: hidden  ;
+        background-color: white;
+        width: 80%;
+        word-wrap: normal;
+        color: white;
+        height: 15%;
+    
+        border: 3px solid black;
+        border-radius: 5px;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family:'Alegreya Sans SC';
+        font-size: 100%;
+    }
+}
+
+
 body{
     width: 100vw;
     height: 100vh;
     margin: 0%;
+    padding: 0%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,54 +183,9 @@ body{
     opacity: 50%;
 }
 
-.aside {
-    display: grid;
-    flex-direction: end;
-    flex-direction: column-reverse;
 
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
 
-    justify-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 50px;
-   
-    font-weight: 800;
-}
 
-main {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.resultados {
-    visibility: hidden  ;
-    background-color: white;
-    width: 95%;
-    word-wrap: normal;
-    color: white;
-    height: 15%;
-
-    border: 3px solid black;
-    border-radius: 5px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family:'Alegreya Sans SC';
-    font-size: 10)%;
-}
 
 .resultados .resultado {
     margin: 0%;

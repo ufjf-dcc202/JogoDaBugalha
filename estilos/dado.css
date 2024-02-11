@@ -15,7 +15,15 @@
     background:url('../assets/dados.avif');
     background-size:100% 100%;
     max-width: 300px;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+
 }
+@media screen and (max-width: 600px){
+    .pontos{
+        height: 90%;
+    }
+}   
 .dado.player{
     grid-row: 3;
 }
