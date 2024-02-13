@@ -12,6 +12,7 @@
         border: 5px solid black;
         font-family: "Pixelify Sans";
         font-weight: 400;
+
     }
     .aside {
         display: grid;
@@ -100,6 +101,7 @@
         border-radius: 5px;
         font-family: "Pixelify Sans";
         font-weight: 400;
+        border-radius: 10px;
 
         gap: 0px;
     }

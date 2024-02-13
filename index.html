@@ -1,98 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Bugalha</title>
-    <link rel="stylesheet" href="estilos/tabuleiro.css">
-    <link rel="stylesheet" href="estilos/dado.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-    <link rel="stylesheet" href="estilos/global.css">
-    <link rel="stylesheet" href="estilos/easteregg.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 
-    <script type="module" src="./src/main.js"></script>
-    <link rel="shortcut icon" type="imagex/png" href="./assets/a.webp">
 </head>
+<body>
+    
+    <main>
+        <h1>Jogo da Bugalha</h1>
+        <section>
+            <button id="start">Iniciar</button>
 
-<body id="body">
-    <div class="jogo">
-        <img class="derrota" src="./assets/chuva.gif">
-        <img class="vitoria" src="./assets/confete.gif">
-    
-        <aside class="aside player">
-            <div class="dado player" id="dado_player">0</div>
-            <div class="pontos" id="pontos_player">0</div>
-        </aside>
-        <main>
-    
-            <table class="tabuleiro">
-                <tbody id="tab_player">
-                    <tr>
-                        <th><span>0</span></th>
-                        <th><span>0</span></th>
-                        <th><span>0</span></th>
-                    </tr>
-                    <tr>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                    </tr>
-                    <tr>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                    </tr>
-                    <tr>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                    </tr>
-    
-                </tbody>
-            </table>
-            <div class="resultados">
-                <p class="resultado">Jogo da Bugalha</p>
-                <p class="resultado" id="placar"></p>
-            </div>
-            <table class="tabuleiro">
-                <tbody id="tab_bot">
-                    <tr>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                    </tr>
-                    <tr>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                    </tr>
-                    <tr>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                        <td><span></span></td>
-                    </tr>
-                    <tr>
-                        <th><span>0</span></th>
-                        <th><span>0</span></th>
-                        <th><span>0</span></th>
-                    </tr>
-                </tbody>
-            </table>
-    
-        </main>
-        <aside class="aside bot">
-            <div class="dado bot" id="dado_bot">
-                0
-            </div>
-            <div class="pontos" id="pontos_bot">
-    
-            </div>
-        </aside>
-    </div>
+            <button id="start">Tutorial</button>
 
-    <script type="module" src="./src/Tela.js"></script>
 
+        </section>
+      
+    </main>
+    <footer>
+        <h3>
+            This is a fan made and open-source project of the minigame from the game Cult of the Lamb.
+            This is not an official game and is not associated with the Massive Monster. 
+            All rights reserved to the creators of the game Cult of the Lamb.
+        </h3>
+
+    </footer>
+
+    <script>
+        document.getElementById('start').addEventListener('click', () => {
+            location.href = 'jogo.html';
+        });
+    </script>
 </body>
-
 </html>

@@ -1,3 +1,11 @@
+function pre_carregar(){
+    const element = document.body;
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    for (let i = 0; i < 6; i++) {
+        let a = new Image();
+        a.src =     "./assets/dado"+i+".png";
+    }
+}
 function getElementos(container, tag) {
     const rows = container.children
     let elementos = []
@@ -135,4 +143,4 @@ function piscaPosicinar(linha, coluna,tabuleiro){
 
 }
 
-export { atualizarTela, mostrarResultado, pisca,piscaPosicinar}
+export { atualizarTela,pre_carregar, mostrarResultado, pisca,piscaPosicinar}
