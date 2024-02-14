@@ -16,6 +16,12 @@
 </head>
 
 <body id="body">
+
+    <header>
+        <button id="voltar">
+            Voltar
+        </button>
+    </header>
     <div class="jogo">
         <img class="derrota" src="./assets/chuva.gif">
         <img class="vitoria" src="./assets/confete.gif">
@@ -92,7 +98,11 @@
     </div>
 
     <script type="module" src="./src/Tela.js"></script>
-
+    <script>
+        document.getElementById('voltar').addEventListener('click', () => {
+            location.assign("https://ufjf-dcc202.github.io/JogoDaBugalha/index.html"); 
+        });
+    </script>
 </body>
 
 </html>

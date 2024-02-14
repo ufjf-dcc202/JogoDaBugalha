@@ -70,7 +70,9 @@
 @media screen and (max-width: 500px){
     .jogo{
         border: 0px solid black !important;
-
+        margin: 0 !important;
+        padding: 0  !important;
+        padding-bottom: 1rem !important;
     }
 
 }
@@ -86,7 +88,7 @@
         aspect-ratio: auto;
         max-width: 500px;
         width: 100%;
-        height: 100vh;
+        height: auto;
         margin-top: 1rem;
         margin-bottom: 1rem;
         overflow-y: scroll;
@@ -112,7 +114,7 @@
         align-items: center;
         gap: 30px;
 
-            height: 10%;
+            height: auto;
    }
    .aside.player{
     border-top: 5px solid black;
@@ -127,7 +129,7 @@
     main {
         display: flex;
         width: 100%;
-        height: 100%;
+        height: auto;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
@@ -155,16 +157,43 @@
     }
 }
 
+header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border-bottom: 1px solid black;
 
+    box-shadow: 5px 5px 5px gainsboro;
+}
+header button{
+    margin-left: 10px;
+    width: 100px;
+    height: 80%;
+    border: 0px;
+    font-size: 20px;
+    font-weight: 800;
+
+    border: 5px solid #ADD8E6;
+    background-color: #ADD8E6;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    cursor: pointer;
+}
 body{
+    gap: 20px;
     width: 100vw;
-    height: 100vh;
+    height: 100vh !important;
     margin: 0%;
     padding: 0%;
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 
