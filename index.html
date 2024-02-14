@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jogo da Bugalha</title>
     <link rel="stylesheet" href="index.css">
 
 </head>
@@ -14,7 +14,7 @@
         <section>
             <button id="start">Iniciar</button>
 
-            <button id="start">Tutorial</button>
+            <button id="tutorial">Tutorial</button>
 
 
         </section>
@@ -31,7 +31,11 @@
 
     <script>
         document.getElementById('start').addEventListener('click', () => {
+            location.assign("https://ufjf-dcc202.github.io/JogoDaBugalha/jogo.html"); 
             location.href = 'jogo.html';
+        });
+        document.getElementById('tutorial').addEventListener('click', () => {
+            location.href = 'tutorial.html';
         });
     </script>
 </body>
