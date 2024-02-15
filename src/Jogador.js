@@ -1,4 +1,4 @@
-import { piscaPosicinar } from "./Tela.js";
+import { brilharRepetido, piscaPosicinar } from "./Tela.js";
 export function criaJogador(div_tabuleiro, div_dado, div_pontos,nome) {
     return {
         nome:nome,

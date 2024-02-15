@@ -1,7 +1,7 @@
 import { criaJogador } from './Jogador.js'
 import { criaJogo } from './Jogo.js'
 import { setar_click } from './definirInputs.js'
-import {pre_carregar} from './Tela.js'
+import {brilharRepetido, pre_carregar} from './Tela.js'
 let divTabuleiroPlayer = document.querySelector('#tab_player')
 let divDadoPlayer = document.querySelector('#dado_player')
 let divPontoPlayer = document.querySelector('#pontos_player')
@@ -15,6 +15,7 @@ let bot = criaJogador(divTabuleiroBot, divDadoBot, divPontoBot,'bot')
 let jogo = criaJogo(player, bot)
 
 pre_carregar()
+brilharRepetido()
 jogo.start()
 
 setar_click(jogo)

@@ -125,22 +125,79 @@ function pisca(jogador, numeroRepetido, coluna) {
     for (let i = 0; i < 3; i++) {
         if(casasPiscadas[i].textContent == numeroRepetido){
             casasPiscadas[i].style.backgroundColor = '#FFCCCB';
-            setTimeout(() => {
-                casasPiscadas[i].style.backgroundColor = 'white';
-            }, 800)
+
         }   
     }
+}
+function brilharRepetido(){
+    const   tabP =document.querySelector('#tab_player')
+    const   tabB =document.querySelector('#tab_bot')
+
+    function marcar_repetidos(tab){
+        const casas = getElementos(tab, "TD")
+        for (let PosX = 0; PosX < 3; PosX++) {
+            for (let PosY1 = PosX; PosY1 <9; PosY1=PosY1+3) {
+                for (let PosY2 = PosX; PosY2 <9; PosY2=PosY2+3) {
+                    const numeroRepetido=(casas[PosY1].textContent == casas[PosY2].textContent)
+                    const casasDiferentes=PosY1!=PosY2
+                    const nãoZero=(casas[PosY1].textContent != 0 && casas[PosY2].textContent != 0)
+
+
+                    if(numeroRepetido && casasDiferentes && nãoZero ){
+
+                        casas[PosY1].style.backgroundColor = '#F7A156';
+                        casas[PosY2].style.backgroundColor = '#F7A156';
+                    }
+
+                    
+                }
+            }
+        }
+    }   
+
+    function voltarPadrão(tabuleiro){
+        const casas = getElementos(tabuleiro, "TD")
+        for (let i = 0; i < 9; i++) {
+            const backgroundAzul = casas[i].style.backgroundColor== 'rgb(173, 216, 230)';
+            const backgroundVermelho= casas[i].style.backgroundColor== 'rgb(255, 204, 203)';
+            const casaNzero = casas[i].textContent != 0
+       
+            if(backgroundAzul){
+                window.setTimeout(()=>{casas[i].style.backgroundColor= 'white'}, 500);
+
+            }
+            if(backgroundVermelho && !casaNzero){
+                
+                window.setTimeout(()=>{casas[i].style.backgroundColor= 'white'}, 500);
+            }
+        }
+    }
+    function marcar_casasValidas(tabuleiro){
+        const casas = getElementos(tabuleiro, "TD")
+        for (let i = 0; i < 9; i++) {
+
+        const casaNzero = casas[i].textContent == 0
+            if(casaNzero){
+                casas[i].style.backgroundColor= '#E6E1EF'
+            }
+        }
+    }
+    marcar_repetidos(tabP)
+
+    marcar_repetidos(tabB)
+    voltarPadrão(tabP)
+    voltarPadrão(tabB)
+    window.setTimeout(()=>{marcar_casasValidas(tabP)}, 505);
+
+//    marcar_repetidos(tabB)
+
+    
+
 }
 function piscaPosicinar(linha, coluna,tabuleiro){
     const casas = getElementos(tabuleiro, "TD")
     const linhas = [casas[0+coluna],casas[3+coluna],casas[6+coluna]]
-
     linhas[linha].style.backgroundColor = '#ADD8E6';
-    setTimeout(() => {
-        linhas[linha].style.backgroundColor = 'white';
-    }, 800)
-    
-
 }
 
-export { atualizarTela,pre_carregar, mostrarResultado, pisca,piscaPosicinar}
+export {brilharRepetido, atualizarTela,pre_carregar, mostrarResultado, pisca,piscaPosicinar}

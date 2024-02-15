@@ -1,4 +1,4 @@
-import { atualizarTela, mostrarResultado, pisca} from "./Tela.js"
+import { atualizarTela, brilharRepetido, mostrarResultado, pisca} from "./Tela.js"
 import { easterEggKnop } from "./EasterEgg.js"
 
 export function criaJogo(player1, player2) {
@@ -94,6 +94,7 @@ export function criaJogo(player1, player2) {
             
             atualizarTela(this.player)
             atualizarTela(this.bot) 
+            brilharRepetido()
             this.checaVitoria()
         },
         pegarPosicoes: function (e) {
