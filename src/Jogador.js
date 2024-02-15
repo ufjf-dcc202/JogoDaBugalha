@@ -1,5 +1,6 @@
 import { brilharRepetido, piscaPosicinar } from "./Tela.js";
 export function criaJogador(div_tabuleiro, div_dado, div_pontos,nome) {
+    
     return {
         nome:nome,
         tabuleiroCtn: div_tabuleiro,
@@ -26,12 +27,56 @@ export function criaJogador(div_tabuleiro, div_dado, div_pontos,nome) {
         fazerJogada: function () {
             let posx
             let posy
-            do {
-                posx = (Math.floor(Math.random() * 3) + 1) - 1;
-                posy = (Math.floor(Math.random() * 3) + 1) - 1;
-            } while (this.tabuleiro[posx][posy] != "");
-            this.posicionarDado(posx, posy)
-            return [posx, posy]
+            let jogarAleatorio=()=> {
+                do {
+                    posx = (Math.floor(Math.random() * 3) + 1) - 1;
+                    posy = (Math.floor(Math.random() * 3) + 1) - 1;
+                } while (this.tabuleiro[posx][posy] != "");
+                this.posicionarDado(posx, posy)
+            }
+            
+
+            let numeroNaColuna = false
+            let colunaCheia=true
+            let coluna = 0
+            
+            for (let i = 0; i < 3; i++) {
+                
+                for (let j = 0; j < 3; j++) {
+                    if(this.dado==this.tabuleiro[i][j]){
+
+                        numeroNaColuna = true
+                        coluna=j
+                        break
+                    }                    
+                }
+            }
+
+            for (let i = 0; i <3; i++) {
+                if(this.tabuleiro[i][coluna]==0){
+                    colunaCheia=false
+                }
+            }
+
+            if(numeroNaColuna==true && colunaCheia==false){
+
+                posx = coluna
+                do {
+                    posy = (Math.floor(Math.random() * 3) + 1) - 1;
+
+                } while (this.tabuleiro[posy][posx] !=0);
+
+                console.log("jogada inteligente",posy,posx,this.tabuleiro)
+
+                this.posicionarDado(posy, posx)
+                return [posx, posy]
+
+            }else{
+                jogarAleatorio()
+                return [posx, posy]
+
+            }
+
         },
 
         calcularColunas: function () {

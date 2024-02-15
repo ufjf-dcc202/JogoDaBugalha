@@ -12,6 +12,7 @@
         border: 5px solid black;
         font-family: "Pixelify Sans";
         font-weight: 400;
+        margin-top: 1rem;
 
     }
     .aside {
@@ -68,14 +69,9 @@
     
 }
 @media screen and (max-width: 500px){
-    header{
-        box-shadow: 0px 0px 0px gainsboro !important; 
-        border-bottom: 0px !important;
-    }
+ 
     .jogo{
         border: 0px solid black !important;
-        margin: 0 !important;
-        
         padding: 0  !important;
         padding-bottom: 1rem !important;
     }
@@ -94,15 +90,13 @@
         max-width: 500px;
         width: 100%;
         height: auto;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        overflow-y: scroll;
-        
+       
+        overflow: scroll;
         flex-direction: column-reverse;
 
         padding-top: 1rem;
         padding-bottom: 1rem;
-        margin: 1rem    ;
+        margin-top: 1rem    ;
         margin-bottom: 1rem ;
         border: 5px solid black;
         border-radius: 5px;
@@ -169,8 +163,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: left;
-    border-bottom: 1px solid black;
-    box-shadow: 5px 5px 5px gainsboro;
+    border-bottom: 4px solid black;
+    background-color: #ADD8E6;
+    box-shadow: 5px 5px 2px gainsboro;
 }
 header button{
     margin-left: 10px;
@@ -181,8 +176,8 @@ header button{
     font-weight: 800;
     font-family: "Pixelify Sans";
 
-    border: 5px solid #ADD8E6;
-    background-color: #ADD8E6;
+    border: 5px solid black;
+    background-color: white;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -193,7 +188,7 @@ header button{
 body{
     gap: 0px !important;
     width: 100vw;
-    height: 100vh !important;
+    height: auto !important;
     margin: 0%;
     padding: 0%;
     display: flex !important;
