@@ -37,6 +37,8 @@ main section button{
     max-width: 300px;
     max-height: 50px;
     border: 5px solid black;
+    font-family: "Pixelify Sans";
+
     border-radius: 10px;
     background-color: #ADD8E6;
     color: black;
